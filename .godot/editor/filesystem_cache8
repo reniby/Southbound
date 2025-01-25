@@ -1,19 +1,21 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737839496
+::res://::1737845554
 icon.svg::CompressedTexture2D::8788810445164620394::1737764972::1737765063::1::::<><>::
-::res://Assets/::1737839502
+::res://Assets/::1737845554
+::res://Assets/Materials/::1737839506
 Blue.tres::StandardMaterial3D::1109378511400077276::1737764972::0::1::::<><>::
-BM Tree.gltf::PackedScene::2554029702354129942::1737839480::1737839496::1::::<><>::
 Green.tres::StandardMaterial3D::4460615660192160260::1737836869::0::1::::<><>::
 Pink.tres::StandardMaterial3D::3002083277062480744::1737764972::0::1::::<><>::
 Red.tres::StandardMaterial3D::4268741505349743764::1737764972::0::1::::<><>::
-::res://Assets/Materials/::1737839502
-::res://Scenes/::1737839496
-obstacle.tscn::PackedScene::752923063876533544::1737839453::0::1::::<><>::res://Scripts/obstacle.gd
-player.tscn::PackedScene::4087981847058823765::1737839453::0::1::::<><>::res://Scripts/player.gd
-road.tscn::PackedScene::7611387662378826976::1737839506::0::1::::<><>::uid://b4s0xnt1f6lia::::res://Assets/Green.tres<>res://Scripts/road.gd
-World.tscn::PackedScene::7285665154832654338::1737839506::0::1::::<><>::uid://dgpapb3koxqf5::::res://Scenes/road.tscn<>uid://kyysd8qe5d2w::::res://Scenes/obstacle.tscn<>uid://bi1h4xe7msjwi::::res://Assets/Pink.tres<>uid://b122sws3pt7w7::::res://Assets/Red.tres<>uid://byiip1duovchx::::res://Scenes/player.tscn<>uid://p2nkjd3ge3qm::::res://Assets/Blue.tres
-::res://Scripts/::1737839487
+::res://Assets/Models/::1737845559
+BM Blockade.gltf::PackedScene::6019737379023268025::1737845559::1737845559::1::::<><>::
+BM Tree.gltf::PackedScene::2554029702354129942::1737839480::1737845555::1::::<><>::
+::res://Scenes/::1737845433
+obstacle.tscn::PackedScene::752923063876533544::1737845433::0::1::::<><>::res://Scripts/obstacle.gd
+player.tscn::PackedScene::4087981847058823765::1737845433::0::1::::<><>::res://Scripts/player.gd
+road.tscn::PackedScene::7611387662378826976::1737845433::0::1::::<><>::uid://b4s0xnt1f6lia::::res://Assets/Materials/Green.tres<>res://Scripts/road.gd
+World.tscn::PackedScene::7285665154832654338::1737845433::0::1::::<><>::uid://dgpapb3koxqf5::::res://Scenes/road.tscn<>uid://kyysd8qe5d2w::::res://Scenes/obstacle.tscn<>uid://bi1h4xe7msjwi::::res://Assets/Materials/Pink.tres<>uid://b122sws3pt7w7::::res://Assets/Materials/Red.tres<>uid://byiip1duovchx::::res://Scenes/player.tscn<>uid://p2nkjd3ge3qm::::res://Assets/Materials/Blue.tres
+::res://Scripts/::1737845432
 obstacle.gd::GDScript::-1::1737834119::0::1::::<>Node3D<>::
-player.gd::GDScript::-1::1737837551::0::1::::<>CharacterBody3D<>::
+player.gd::GDScript::-1::1737845432::0::1::::<>CharacterBody3D<>::
 road.gd::GDScript::-1::1737834427::0::1::::<>Node3D<>::

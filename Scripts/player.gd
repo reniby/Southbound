@@ -3,6 +3,9 @@ extends CharacterBody3D
 @onready var head = $Pivot
 @onready var camera = $Pivot/Camera3D
 
+const BOB_FREQ = 2.4
+const BOB_AMP = 0.1
+var time = 0.0
 
 const LOW_GEAR = 5.0
 const MID_GEAR = 15.0
@@ -28,7 +31,7 @@ func _physics_process(delta) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle Speed..
+	# Speed
 	if Input.is_action_pressed("low_gear"):
 		speed = LOW_GEAR
 	elif Input.is_action_pressed("mid_gear"):
@@ -36,7 +39,7 @@ func _physics_process(delta) -> void:
 	elif Input.is_action_pressed("high_gear"):
 		speed = HIGH_GEAR
 
-	# Get the input direction and handle the movement/deceleration.
+	# Movement
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	if direction:
@@ -44,5 +47,11 @@ func _physics_process(delta) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, turn_speed)
 	velocity.z = -1 * speed
+	
+	# Head bob
+	time += delta * 2
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	camera.transform.origin = pos
 
 	move_and_slide()

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcngq4oyveukc"
-path="res://.godot/imported/BM Tree.gltf-d93cb2e46e7c6cab76339443acbbd6eb.scn"
+uid="uid://cr1agvtx1dpe4"
+path="res://.godot/imported/BM Blockade.gltf-4da1b1e4ab2fc12b1414058760a555ed.scn"
 
 [deps]
 
-source_file="res://Assets/BM Tree.gltf"
-dest_files=["res://.godot/imported/BM Tree.gltf-d93cb2e46e7c6cab76339443acbbd6eb.scn"]
+source_file="res://Assets/Models/BM Blockade.gltf"
+dest_files=["res://.godot/imported/BM Blockade.gltf-4da1b1e4ab2fc12b1414058760a555ed.scn"]
 
 [params]
 
@@ -33,13 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Node/Scene 1/Camera": {
+"PATH:Node/bm_blockade_basic/Camera": {
 "import/skip_import": true
 },
-"PATH:Node/Scene 1/Default Ambient Light": {
-"import/skip_import": true
-},
-"PATH:Node/Scene 1/Directional Light": {
+"PATH:Node/bm_blockade_basic/Default Ambient Light": {
 "import/skip_import": true
 }
 }

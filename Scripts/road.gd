@@ -9,4 +9,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	curr_road.position.z -= 114
 	for area in curr_road.get_node("Area3D").get_overlapping_areas():
 		area.position.z -= 114
-		area.get_node("MeshInstance3D").visible = true
+		area.get_node("Mesh").visible = true

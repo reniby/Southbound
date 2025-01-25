@@ -1,10 +1,6 @@
 extends Node3D
 
-@export var material : Material
-@onready var mesh: MeshInstance3D = $Area3D/MeshInstance3D
-
-func _ready() -> void:
-	mesh.set_surface_override_material(0, material)
+@onready var mesh: Node3D = $Area3D/Mesh
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
