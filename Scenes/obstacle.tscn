@@ -6,7 +6,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5q1uv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3igl4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_uan3x"]
 
 [node name="obstacle" type="Node3D"]
 transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, 0, 0.328048, 0)
@@ -20,6 +20,6 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_5q1uv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_3igl4")
+shape = SubResource("BoxShape3D_uan3x")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

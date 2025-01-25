@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
-[ext_resource type="Material" uid="uid://bi1h4xe7msjwi" path="res://Materials/Pink.tres" id="3_irgfk"]
-[ext_resource type="Material" uid="uid://b122sws3pt7w7" path="res://Materials/Red.tres" id="4_nuwel"]
+[ext_resource type="Material" uid="uid://bi1h4xe7msjwi" path="res://Assets/Materials/Pink.tres" id="3_irgfk"]
+[ext_resource type="Material" uid="uid://b122sws3pt7w7" path="res://Assets/Materials/Red.tres" id="4_nuwel"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
-[ext_resource type="Material" uid="uid://p2nkjd3ge3qm" path="res://Materials/Blue.tres" id="5_te4rd"]
+[ext_resource type="Material" uid="uid://p2nkjd3ge3qm" path="res://Assets/Materials/Blue.tres" id="5_te4rd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,10 +15,11 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_5lq0h")
 
 [sub_resource type="Environment" id="Environment_g2h84"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.00668428, 0.0182566, 0.119167, 1)
 sky = SubResource("Sky_f6bkd")
 tonemap_mode = 2
-glow_enabled = true
+fog_height = 1024.0
 
 [node name="BIGMODE" type="Node3D"]
 
@@ -51,7 +52,10 @@ material = ExtResource("3_irgfk")
 environment = SubResource("Environment_g2h84")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.495919, -0.680099, 0.539934, -0.063775, 0.591576, 0.803723, 0, 0, 0)
+visible = false
+light_energy = 0.391
+light_angular_distance = 31.71
 shadow_enabled = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_f8doh")]

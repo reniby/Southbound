@@ -38,12 +38,11 @@ func _physics_process(delta) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
-	var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	if direction:
 		velocity.x = direction.x * turn_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, turn_speed)
-
 	velocity.z = -1 * speed
+
 	move_and_slide()
