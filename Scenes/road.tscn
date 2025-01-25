@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgpapb3koxqf5"]
+
+[ext_resource type="Material" uid="uid://b4s0xnt1f6lia" path="res://Materials/Green.tres" id="1_dfht1"]
+[ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qg16h"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c16ot"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="road" type="Node3D"]
+transform = Transform3D(1.99871, 0, 0, 0, 1, 0, 0, 0, 1.97951, 0, 0, 0)
+script = ExtResource("1_kwlmd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_qg16h")
+surface_material_override/0 = ExtResource("1_dfht1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c16ot")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00504172, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_c16ot")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

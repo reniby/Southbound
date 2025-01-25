@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://db2h3t17k37pe"]
+
+[ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
+[ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
+[ext_resource type="Material" uid="uid://bi1h4xe7msjwi" path="res://Materials/Pink.tres" id="3_irgfk"]
+[ext_resource type="Material" uid="uid://b122sws3pt7w7" path="res://Materials/Red.tres" id="4_nuwel"]
+[ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
+[ext_resource type="Material" uid="uid://p2nkjd3ge3qm" path="res://Materials/Blue.tres" id="5_te4rd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_f6bkd"]
+sky_material = SubResource("ProceduralSkyMaterial_5lq0h")
+
+[sub_resource type="Environment" id="Environment_g2h84"]
+background_mode = 2
+sky = SubResource("Sky_f6bkd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="BIGMODE" type="Node3D"]
+
+[node name="Roads" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525513, -0.27317, 0.0869408)
+
+[node name="road1" parent="Roads" groups=["Road1"] instance=ExtResource("1_pwtgb")]
+transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 0)
+
+[node name="road2" parent="Roads" groups=["Road2"] instance=ExtResource("1_pwtgb")]
+transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 57)
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="obstacle" parent="Obstacles" instance=ExtResource("3_55mw3")]
+transform = Transform3D(8.86037, 0, 0, 0, 1.64435, 0, 0, 0, 1, 0, 0.328048, 7.96444)
+material = ExtResource("5_te4rd")
+
+[node name="obstacle2" parent="Obstacles" instance=ExtResource("3_55mw3")]
+transform = Transform3D(9.89154, 0, 0, 0, 1.64435, 0, 0, 0, 1, 14.6152, 0.328048, -17.5306)
+material = ExtResource("4_nuwel")
+
+[node name="obstacle3" parent="Obstacles" instance=ExtResource("3_55mw3")]
+transform = Transform3D(9.89154, 0, 0, 0, 1.64435, 0, 0, 0, 1, -10.2062, 0.328048, 72.9842)
+material = ExtResource("3_irgfk")
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_g2h84")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_f8doh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0544739, 0.0413542, 27.3746)
