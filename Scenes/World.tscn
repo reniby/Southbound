@@ -39,6 +39,7 @@ transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, 14.6152, 0.328048,
 
 [node name="obstacle3" parent="Obstacles" instance=ExtResource("3_55mw3")]
 transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, -10.2062, 0.328048, 72.9842)
+obstacle_type = 1
 
 [node name="Env" type="Node3D" parent="."]
 
