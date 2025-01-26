@@ -3,6 +3,8 @@ extends CharacterBody3D
 @onready var head = $Pivot
 @onready var camera = $Pivot/Camera3D
 
+@export var power = 100
+
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.1
 var time = 0.0
@@ -16,7 +18,8 @@ var turn_speed = 15.0
 const SENSITIVITY = 0.004
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	speed = LOW_GEAR
 
 func _unhandled_input(event):
@@ -27,6 +30,12 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-20), deg_to_rad(30))
 
 func _physics_process(delta) -> void:
+	if power > 100:
+		power = 100
+	elif power <= 0:
+		power = 0
+		print("you lose")
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -47,6 +56,7 @@ func _physics_process(delta) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, turn_speed)
 	velocity.z = -1 * speed
+	power -= 0.001 * speed
 	
 	# Head bob
 	time += delta * 2

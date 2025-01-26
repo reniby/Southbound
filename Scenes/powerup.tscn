@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcsuknevy4bpw"]
+
+[ext_resource type="Material" uid="uid://b122sws3pt7w7" path="res://Assets/Materials/Red.tres" id="1_8qqae"]
+[ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fcma7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdrq8"]
+
+[node name="Power Up" type="Node3D"]
+script = ExtResource("1_ltpmm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CapsuleMesh_fcma7")
+surface_material_override/0 = ExtResource("1_8qqae")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_sdrq8")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

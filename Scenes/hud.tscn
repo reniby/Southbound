@@ -1,10 +1,50 @@
-[gd_scene format=3 uid="uid://cgq1dxrjulyjr"]
+[gd_scene load_steps=5 format=3 uid="uid://cgq1dxrjulyjr"]
+
+[ext_resource type="Script" path="res://sCRIPTS/hud.gd" id="1_cspro"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_co2mo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l061q"]
+bg_color = Color(0.0827573, 0, 0.77393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx1s1"]
+bg_color = Color(0.149393, 0.678678, 0.702176, 1)
 
 [node name="HUD" type="Node2D"]
 position = Vector2(156, 150)
 scale = Vector2(16.84, 9.44)
+script = ExtResource("1_cspro")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_co2mo")
+offset_left = -8.49169
+offset_top = 11.1229
+offset_right = 72.5083
+offset_bottom = 38.1229
+scale = Vector2(0.0391164, 2.0985)
+theme_override_styles/background = SubResource("StyleBoxFlat_l061q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wx1s1")
+step = 0.001
+fill_mode = 3
+show_percentage = false
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = -6.94774
+offset_top = 81.5678
+offset_right = 10.0523
+offset_bottom = 112.568
+scale = Vector2(0.313713, 0.479029)
+theme_override_colors/font_hover_color = Color(0.966425, 5.77569e-07, 0.471684, 1)
+theme_override_colors/font_pressed_color = Color(0.787219, 0.0950498, 1, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+action_mode = 0
+text = "L"
+
+[node name="Windshield" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Windshield"]
 offset_left = -9.08551
 offset_top = 77.0127
 offset_right = 30.9145
@@ -12,7 +52,7 @@ offset_bottom = 117.013
 scale = Vector2(2.84561, 0.542373)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="Windshield"]
 offset_left = -9.08551
 offset_top = -15.7839
 offset_right = 30.9145
@@ -20,7 +60,7 @@ offset_bottom = 24.2161
 scale = Vector2(2.84561, 0.258474)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="Windshield"]
 offset_left = -9.08551
 offset_top = -15.7839
 offset_right = 30.9145
@@ -28,7 +68,7 @@ offset_bottom = 24.2161
 scale = Vector2(0.130983, 2.8118)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="ColorRect4" type="ColorRect" parent="Windshield"]
 offset_left = 99.5249
 offset_top = -15.7839
 offset_right = 139.525
@@ -36,7 +76,7 @@ offset_bottom = 24.2161
 scale = Vector2(0.130983, 2.8118)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect5" type="ColorRect" parent="."]
+[node name="ColorRect5" type="ColorRect" parent="Windshield"]
 offset_left = -20.0
 offset_top = -45.0
 offset_right = 20.0
@@ -44,10 +84,12 @@ offset_bottom = -5.0
 rotation = 0.6353
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect6" type="ColorRect" parent="."]
+[node name="ColorRect6" type="ColorRect" parent="Windshield"]
 offset_left = 85.0
 offset_top = -20.0
 offset_right = 125.0
 offset_bottom = 20.0
 rotation = -0.6353
 color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

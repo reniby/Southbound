@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=14 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
+[ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="3_q2fj2"]
 [ext_resource type="PackedScene" uid="uid://cgq1dxrjulyjr" path="res://Scenes/hud.tscn" id="4_od0c4"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="6_r3jv0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -76,6 +78,14 @@ transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, 14.6152, 0.328048,
 transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, -10.2062, 0.328048, 72.9842)
 obstacle_type = 1
 
+[node name="PowerUps" type="Node3D" parent="."]
+
+[node name="Power Up" parent="PowerUps" instance=ExtResource("3_q2fj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.709022, 12)
+
+[node name="Power Up2" parent="PowerUps" instance=ExtResource("3_q2fj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85176, 0.72424, 65.1153)
+
 [node name="Env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
@@ -95,6 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0544739, 0.0413542, 27.374
 transform = Transform3D(1, 0, 0, 0, 0.787903, 1.05774, 0, -0.615799, 1.35336, 0.188629, 15.1497, -27.3599)
 amount = 10000
 lifetime = 2.78
+preprocess = 1.0
 randomness = 0.44
 trail_enabled = true
 trail_lifetime = 0.04
@@ -104,3 +115,4 @@ draw_pass_1 = SubResource("RibbonTrailMesh_svto2")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_od0c4")]
+script = ExtResource("6_r3jv0")
