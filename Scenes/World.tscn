@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=12 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
+[ext_resource type="PackedScene" uid="uid://cgq1dxrjulyjr" path="res://Scenes/hud.tscn" id="4_od0c4"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
@@ -17,6 +18,40 @@ background_color = Color(0.00668428, 0.0182566, 0.119167, 1)
 sky = SubResource("Sky_f6bkd")
 tonemap_mode = 2
 fog_height = 1024.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0886
+volumetric_fog_albedo = Color(0.114897, 0.114897, 0.114897, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ia4v"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 20)
+angle_min = 90.0
+angle_max = 90.0
+direction = Vector3(0, -1, 0)
+spread = 6.02
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+color = Color(0.635294, 0.635294, 0.635294, 0.309804)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_qu7yv"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.144279, 0.0167372), 0.0, 0.0, 0, 0, Vector2(0.996683, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlv16"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.851769, 0.851769, 0.851769, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_svto2"]
+material = SubResource("StandardMaterial3D_mlv16")
+curve = SubResource("Curve_qu7yv")
 
 [node name="BIGMODE" type="Node3D"]
 
@@ -55,3 +90,17 @@ shadow_enabled = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_f8doh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0544739, 0.0413542, 27.3746)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.787903, 1.05774, 0, -0.615799, 1.35336, 0.188629, 15.1497, -27.3599)
+amount = 10000
+lifetime = 2.78
+randomness = 0.44
+trail_enabled = true
+trail_lifetime = 0.04
+process_material = SubResource("ParticleProcessMaterial_0ia4v")
+draw_pass_1 = SubResource("RibbonTrailMesh_svto2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_od0c4")]

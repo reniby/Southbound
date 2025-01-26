@@ -1,8 +1,5 @@
-res://Scenes/World.tscn
-res://Materials/Green.tres
 res://Scenes/obstacle.tscn
+res://Scenes/World.tscn
 res://Scenes/player.tscn
 res://Scenes/road.tscn
-res://Scripts/player.gd
-res://Scripts/obstacle.gd
-res://Scripts/road.gd
+res://Scenes/hud.tscn

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cgq1dxrjulyjr"]
+
+[node name="HUD" type="Node2D"]
+position = Vector2(156, 150)
+scale = Vector2(16.84, 9.44)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.08551
+offset_top = 77.0127
+offset_right = 30.9145
+offset_bottom = 117.013
+scale = Vector2(2.84561, 0.542373)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -9.08551
+offset_top = -15.7839
+offset_right = 30.9145
+offset_bottom = 24.2161
+scale = Vector2(2.84561, 0.258474)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -9.08551
+offset_top = -15.7839
+offset_right = 30.9145
+offset_bottom = 24.2161
+scale = Vector2(0.130983, 2.8118)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 99.5249
+offset_top = -15.7839
+offset_right = 139.525
+offset_bottom = 24.2161
+scale = Vector2(0.130983, 2.8118)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -5.0
+rotation = 0.6353
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 85.0
+offset_top = -20.0
+offset_right = 125.0
+offset_bottom = 20.0
+rotation = -0.6353
+color = Color(0, 0, 0, 1)

@@ -1,3 +1,9 @@
+GPUParticles3D
+ColorRect
+TextureRect
+Panel
+ReferenceRect
+CanvasLayer
 CollisionShape3D
 SpotLight3D
 MeshInstance3D
