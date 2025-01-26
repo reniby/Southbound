@@ -19,15 +19,14 @@ const SENSITIVITY = 0.004
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	speed = LOW_GEAR
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		head.rotation.y = clamp(head.rotation.y, deg_to_rad(-30), deg_to_rad(30))
+		head.rotation.y = clamp(head.rotation.y, deg_to_rad(-10), deg_to_rad(10))
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-20), deg_to_rad(30))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
 	if power > 100:
