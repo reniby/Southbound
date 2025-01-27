@@ -25,10 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)
-light_energy = 16.0
+light_energy = 40.0
 light_size = 1.0
 distance_fade_enabled = true
-spot_range = 36.2101
+spot_range = 36.21
 spot_angle = 27.5018
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]

@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @onready var head = $Pivot
 @onready var camera = $Pivot/Camera3D
+@onready var light1: SpotLight3D = $SpotLight3D2
+@onready var light2: SpotLight3D = $SpotLight3D
 
 @export var power = 100
 
@@ -16,8 +18,19 @@ var speed
 var turn_speed = 15.0
 
 const SENSITIVITY = 0.004
+const ENERGY_OPTIONS = [0,8,20]
+const RANGE_OPTIONS = [0,36,4000]
+const ANGLE_OPTIONS = [0,23,30]
+var curr_light
 
 func _ready():
+	curr_light = 0
+	light1.light_energy = ENERGY_OPTIONS[curr_light]
+	light2.light_energy = ENERGY_OPTIONS[curr_light]
+	light1.spot_range = RANGE_OPTIONS[curr_light]
+	light2.spot_range = RANGE_OPTIONS[curr_light]
+	light1.spot_angle = ANGLE_OPTIONS[curr_light]
+	light2.spot_angle = ANGLE_OPTIONS[curr_light]
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	speed = LOW_GEAR
 
@@ -46,16 +59,26 @@ func _physics_process(delta) -> void:
 		speed = MID_GEAR
 	elif Input.is_action_pressed("high_gear"):
 		speed = HIGH_GEAR
+		
+	if Input.is_action_just_released("light"):
+		curr_light = (curr_light + 1) % 3 
+		light1.light_energy = ENERGY_OPTIONS[curr_light]
+		light2.light_energy = ENERGY_OPTIONS[curr_light]
+		light1.spot_range = RANGE_OPTIONS[curr_light]
+		light2.spot_range = RANGE_OPTIONS[curr_light]
+		light1.spot_angle = ANGLE_OPTIONS[curr_light]
+		light2.spot_angle = ANGLE_OPTIONS[curr_light]
 
 	# Movement
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
-	if direction:
+	
+	if direction.x:
 		velocity.x = direction.x * turn_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, turn_speed)
 	velocity.z = -1 * speed
-	power -= 0.001 * speed
+	power -= 0.001 * (speed + ENERGY_OPTIONS[curr_light])
 	
 	# Head bob
 	time += delta * 2
