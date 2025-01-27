@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgq1dxrjulyjr"]
 
-[ext_resource type="Script" path="res://sCRIPTS/hud.gd" id="1_cspro"]
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_gfn7g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_co2mo"]
 
@@ -13,7 +13,7 @@ bg_color = Color(0.149393, 0.678678, 0.702176, 1)
 [node name="HUD" type="Node2D"]
 position = Vector2(156, 150)
 scale = Vector2(16.84, 9.44)
-script = ExtResource("1_cspro")
+script = ExtResource("1_gfn7g")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 z_index = 1
@@ -28,19 +28,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wx1s1")
 step = 0.001
 fill_mode = 3
 show_percentage = false
-
-[node name="Button" type="Button" parent="."]
-z_index = 1
-offset_left = -6.94774
-offset_top = 81.5678
-offset_right = 10.0523
-offset_bottom = 112.568
-scale = Vector2(0.313713, 0.479029)
-theme_override_colors/font_hover_color = Color(0.966425, 5.77569e-07, 0.471684, 1)
-theme_override_colors/font_pressed_color = Color(0.787219, 0.0950498, 1, 1)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-action_mode = 0
-text = "L"
 
 [node name="Windshield" type="Node2D" parent="."]
 
@@ -92,4 +79,32 @@ offset_bottom = 20.0
 rotation = -0.6353
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Node" type="Node" parent="."]
+
+[node name="Low" type="Button" parent="Node"]
+offset_left = 97.0
+offset_top = 903.0
+offset_right = 138.0
+offset_bottom = 934.0
+scale = Vector2(1.25287, 1.53577)
+text = "L"
+
+[node name="Med" type="Button" parent="Node"]
+offset_left = 97.0
+offset_top = 952.0
+offset_right = 138.0
+offset_bottom = 983.0
+scale = Vector2(1.25287, 1.61577)
+text = "M"
+
+[node name="High" type="Button" parent="Node"]
+offset_left = 97.0
+offset_top = 1003.0
+offset_right = 138.0
+offset_bottom = 1034.0
+scale = Vector2(1.25287, 1.61577)
+text = "H"
+
+[connection signal="pressed" from="Node/Low" to="." method="_on_low_pressed"]
+[connection signal="pressed" from="Node/Med" to="." method="_on_med_pressed"]
+[connection signal="pressed" from="Node/High" to="." method="_on_high_pressed"]

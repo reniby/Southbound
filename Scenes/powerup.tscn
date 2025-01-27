@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcsuknevy4bpw"]
+[gd_scene load_steps=6 format=3 uid="uid://bcsuknevy4bpw"]
 
 [ext_resource type="Material" uid="uid://b122sws3pt7w7" path="res://Assets/Materials/Red.tres" id="1_8qqae"]
 [ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
+[ext_resource type="AudioStream" uid="uid://v5xsvqy1dyhq" path="res://Audio/FX/mixkit-unlock-game-notification-253.wav" id="3_m22qk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fcma7"]
 
@@ -18,5 +19,8 @@ surface_material_override/0 = ExtResource("1_8qqae")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_sdrq8")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Area3D"]
+stream = ExtResource("3_m22qk")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -11,9 +11,6 @@ const BOB_FREQ = 2.4
 const BOB_AMP = 0.1
 var time = 0.0
 
-const LOW_GEAR = 5.0
-const MID_GEAR = 15.0
-const HIGH_GEAR = 25.0
 var speed
 var turn_speed = 15.0
 
@@ -32,7 +29,7 @@ func _ready():
 	light1.spot_angle = ANGLE_OPTIONS[curr_light]
 	light2.spot_angle = ANGLE_OPTIONS[curr_light]
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	speed = LOW_GEAR
+	speed = 5.0
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -52,13 +49,6 @@ func _physics_process(delta) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Speed
-	if Input.is_action_pressed("low_gear"):
-		speed = LOW_GEAR
-	elif Input.is_action_pressed("mid_gear"):
-		speed = MID_GEAR
-	elif Input.is_action_pressed("high_gear"):
-		speed = HIGH_GEAR
 		
 	if Input.is_action_just_released("light"):
 		curr_light = (curr_light + 1) % 3 

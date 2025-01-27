@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=15 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="3_q2fj2"]
 [ext_resource type="PackedScene" uid="uid://cgq1dxrjulyjr" path="res://Scenes/hud.tscn" id="4_od0c4"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
+[ext_resource type="AudioStream" uid="uid://br4uoclqhyik7" path="res://Audio/Music/pixel-dreams-259187.mp3" id="5_mdjuv"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="6_r3jv0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
@@ -111,6 +112,9 @@ trail_enabled = true
 trail_lifetime = 0.04
 process_material = SubResource("ParticleProcessMaterial_0ia4v")
 draw_pass_1 = SubResource("RibbonTrailMesh_svto2")
+
+[node name="Jazz" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("5_mdjuv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
