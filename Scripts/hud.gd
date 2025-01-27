@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var player: CharacterBody3D = $"../../Player"
+@onready var player = $"../../Player"
 @onready var jazz: AudioStreamPlayer3D = $"../../Player/Jazz"
 
 const LOW_GEAR = 5.0
@@ -17,8 +17,6 @@ func _process(delta: float) -> void:
 
 func change_music(genre):
 	genre.play()
-
-
 
 
 func _on_low_pressed() -> void:

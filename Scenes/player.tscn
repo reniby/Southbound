@@ -2,26 +2,28 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hj7uy"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8hhdk"]
+[sub_resource type="BoxMesh" id="BoxMesh_futcf"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gs8ea"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u2dtu"]
+size = Vector3(1, 0.24469, 2.2334)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129436, 0, 0.0157738)
 script = ExtResource("1_hj7uy")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_8hhdk")
+transform = Transform3D(1, 0, 0, 0, 0.135342, 0, 0, 0, 2.2829, -0.0284, 0.204245, 0.0842862)
+mesh = SubResource("BoxMesh_futcf")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_gs8ea")
+transform = Transform3D(1.03653, 0, 0, 0, 1.03653, 0, 0, 0, 1.03653, 0.0266994, 0.184485, 0.0171943)
+shape = SubResource("BoxShape3D_u2dtu")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
+current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)
@@ -38,3 +40,23 @@ light_size = 1.0
 distance_fade_enabled = true
 spot_range = 36.2101
 spot_angle = 27.5018
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.718625, 0, -0.550285)
+use_as_steering = true
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.569611, 0, -0.550285)
+use_as_steering = true
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.569611, 0, 0.731662)
+use_as_traction = true
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.549839, 0, 0.731662)
+use_as_traction = true
+suspension_stiffness = 50.0

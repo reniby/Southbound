@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends VehicleBody3D
 
 @onready var head = $Pivot
 @onready var camera = $Pivot/Camera3D
@@ -30,26 +30,26 @@ func _ready():
 	light2.spot_angle = ANGLE_OPTIONS[curr_light]
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	speed = 5.0
-
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		head.rotation.y = clamp(head.rotation.y, deg_to_rad(-10), deg_to_rad(10))
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
+#
+#func _unhandled_input(event):
+	#if event is InputEventMouseMotion:
+		#head.rotate_y(-event.relative.x * SENSITIVITY)
+		#head.rotation.y = clamp(head.rotation.y, deg_to_rad(-10), deg_to_rad(10))
+		#camera.rotate_x(-event.relative.y * SENSITIVITY)
+		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
+	engine_force = 20
+	steering = lerp(steering, Input.get_axis("left", "right") * 0.4, delta * 5)
+	#axis_lock_angular_x = true
+	#axis_lock_angular_z = true
+	
 	if power > 100:
 		power = 100
 	elif power <= 0:
 		power = 0
 		print("you lose")
 
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-		
 	if Input.is_action_just_released("light"):
 		curr_light = (curr_light + 1) % 3 
 		light1.light_energy = ENERGY_OPTIONS[curr_light]
@@ -63,17 +63,17 @@ func _physics_process(delta) -> void:
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	
-	if direction.x:
-		velocity.x = direction.x * turn_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, turn_speed)
-	velocity.z = -1 * speed
+	#if direction.x:
+		#velocity.x = direction.x * turn_speed
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, turn_speed)
+	#velocity.z = -1 * speed
 	power -= 0.001 * (speed + ENERGY_OPTIONS[curr_light])
 	
 	# Head bob
-	time += delta * 2
-	var pos = Vector3.ZERO
-	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	camera.transform.origin = pos
+	#time += delta * 2
+	#var pos = Vector3.ZERO
+	#pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	#camera.transform.origin = pos
 
-	move_and_slide()
+	#move_and_slide()
