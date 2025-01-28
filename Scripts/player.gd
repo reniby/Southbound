@@ -12,7 +12,8 @@ const BOB_AMP = 0.1
 var time = 0.0
 
 var speed
-var turn_speed = 15.0
+var turn_speed = 0.4
+var power_steering = false
 
 const SENSITIVITY = 0.004
 const ENERGY_OPTIONS = [0,8,20]
@@ -33,10 +34,18 @@ func _ready():
 		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
-	engine_force = 20
-	steering = lerp(steering, Input.get_axis("right", "left") * 0.4, delta * 5)
-	#axis_lock_angular_x = true
-	#axis_lock_angular_z = true
+	apply_force(Vector3.DOWN * 20)
+	print(linear_velocity.length())
+	print(speed)
+	engine_force = 200 * max((speed - linear_velocity.length()),0)
+	
+	if linear_velocity.length() > speed:
+		brake = 10 * min((linear_velocity.length() - speed),0)
+		#brake = 0
+		#engine_force = 1000
+	#else:
+		#brake = 50
+	steering = lerp(steering, Input.get_axis("left", "right") * turn_speed, delta * 5)
 	
 	if power > 100:
 		power = 100

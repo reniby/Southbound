@@ -10,15 +10,17 @@ size = Vector3(1, 0.24469, 2.2334)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
 
 [node name="Player" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129436, 0, 0.0157738)
+mass = 500.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -0.5)
 script = ExtResource("1_hj7uy")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.135342, 0, 0, 0, 2.2829, -0.0284, 0.204245, 0.0842862)
+transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 2.2829, 0, 0.176988, 0)
 mesh = SubResource("BoxMesh_futcf")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.03653, 0, 0, 0, 1.03653, 0, 0, 0, 1.03653, 0.0266994, 0.184485, 0.0171943)
+transform = Transform3D(1.69221, 0, 0, 0, 1.03653, 0, 0, 0, 1.03653, 0, 0.177, 0)
 shape = SubResource("BoxShape3D_u2dtu")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -26,34 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
-shape = SubResource("BoxShape3D_v7adf")
-
-[node name="Node" type="Node" parent="."]
-
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.718625, 0, -0.550285)
-use_as_steering = true
-suspension_stiffness = 50.0
-
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.569611, 0, -0.550285)
-use_as_steering = true
-suspension_stiffness = 50.0
-
-[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.569611, 0, 0.731662)
-use_as_traction = true
-suspension_stiffness = 50.0
-
-[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.549839, 0, 0.731662)
-use_as_traction = true
-suspension_stiffness = 50.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)
@@ -70,3 +44,41 @@ light_size = 1.0
 distance_fade_enabled = true
 spot_range = 36.2101
 spot_angle = 27.5018
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
+shape = SubResource("BoxShape3D_v7adf")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 4.57535e-09, -8.7303e-08, 0, 0.99863, 0.052336, 8.74228e-08, 0.052336, -0.99863, 1, 0, -1)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 13.0
+suspension_travel = 0.3
+suspension_stiffness = 70.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, -4.57535e-09, -8.7303e-08, 0, 0.99863, -0.052336, 8.74228e-08, -0.052336, -0.99863, -1, 0, -1)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 13.0
+suspension_travel = 0.3
+suspension_stiffness = 70.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, 1)
+use_as_traction = true
+wheel_radius = 0.6
+wheel_friction_slip = 13.0
+suspension_travel = 0.3
+suspension_stiffness = 70.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, 1)
+use_as_traction = true
+wheel_radius = 0.6
+wheel_friction_slip = 13.0
+suspension_travel = 0.3
+suspension_stiffness = 70.0
