@@ -27,3 +27,15 @@ func _on_med_pressed() -> void:
 
 func _on_high_pressed() -> void:
 	player.speed = HIGH_GEAR
+
+
+
+
+func _on_off_pressed() -> void:
+	player.set_lights(0)
+
+func _on_regular_pressed() -> void:
+	player.set_lights(1)
+
+func _on_brights_pressed() -> void:
+	player.set_lights(2)

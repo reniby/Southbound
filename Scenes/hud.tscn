@@ -105,6 +105,35 @@ offset_bottom = 1034.0
 scale = Vector2(1.25287, 1.61577)
 text = "H"
 
+[node name="Gears2" type="Node" parent="."]
+
+[node name="Off" type="Button" parent="Gears2"]
+offset_left = 209.0
+offset_top = 903.0
+offset_right = 250.0
+offset_bottom = 934.0
+scale = Vector2(1.25287, 1.53577)
+text = "O"
+
+[node name="Regular" type="Button" parent="Gears2"]
+offset_left = 209.0
+offset_top = 952.0
+offset_right = 250.0
+offset_bottom = 983.0
+scale = Vector2(1.25287, 1.61577)
+text = "R"
+
+[node name="Brights" type="Button" parent="Gears2"]
+offset_left = 209.0
+offset_top = 1003.0
+offset_right = 250.0
+offset_bottom = 1034.0
+scale = Vector2(1.25287, 1.61577)
+text = "B"
+
 [connection signal="pressed" from="Gears/Low" to="." method="_on_low_pressed"]
 [connection signal="pressed" from="Gears/Med" to="." method="_on_med_pressed"]
 [connection signal="pressed" from="Gears/High" to="." method="_on_high_pressed"]
+[connection signal="pressed" from="Gears2/Off" to="." method="_on_off_pressed"]
+[connection signal="pressed" from="Gears2/Regular" to="." method="_on_regular_pressed"]
+[connection signal="pressed" from="Gears2/Brights" to="." method="_on_brights_pressed"]
