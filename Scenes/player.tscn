@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://byiip1duovchx"]
+[gd_scene load_steps=5 format=3 uid="uid://byiip1duovchx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hj7uy"]
 
@@ -6,6 +6,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u2dtu"]
 size = Vector3(1, 0.24469, 2.2334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
 
 [node name="Player" type="VehicleBody3D"]
 mass = 500.0
@@ -27,21 +29,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)
-light_energy = 40.0
-light_size = 1.0
-distance_fade_enabled = true
-spot_range = 36.21
-spot_angle = 27.5018
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.923813, 0, 0.382845, 0, 1, 0, -0.382845, 0, 0.923813, -0.75, 1, -0.75)
-light_energy = 16.0
-light_size = 1.0
-distance_fade_enabled = true
-spot_range = 36.2101
-spot_angle = 27.5018
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
+shape = SubResource("BoxShape3D_v7adf")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
+shape = SubResource("BoxShape3D_v7adf")
+
+[node name="Node" type="Node" parent="."]
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 4.57535e-09, -8.7303e-08, 0, 0.99863, 0.052336, 8.74228e-08, 0.052336, -0.99863, 1, 0, -1)

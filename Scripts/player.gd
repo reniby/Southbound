@@ -19,16 +19,10 @@ const SENSITIVITY = 0.004
 const ENERGY_OPTIONS = [0,8,20]
 const RANGE_OPTIONS = [0,36,4000]
 const ANGLE_OPTIONS = [0,23,30]
-var curr_light
+var light_power = 0
 
 func _ready():
-	curr_light = 0
-	light1.light_energy = ENERGY_OPTIONS[curr_light]
-	light2.light_energy = ENERGY_OPTIONS[curr_light]
-	light1.spot_range = RANGE_OPTIONS[curr_light]
-	light2.spot_range = RANGE_OPTIONS[curr_light]
-	light1.spot_angle = ANGLE_OPTIONS[curr_light]
-	light2.spot_angle = ANGLE_OPTIONS[curr_light]
+	set_lights(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	speed = 5.0
 #
@@ -57,18 +51,7 @@ func _physics_process(delta) -> void:
 		power = 100
 	elif power <= 0:
 		power = 0
-	if Input.is_action_pressed("drift"):
-		turn_speed = 0.8
-	else:
-		turn_speed = 0.4
-	if Input.is_action_just_released("light"):
-		curr_light = (curr_light + 1) % 3 
-		light1.light_energy = ENERGY_OPTIONS[curr_light]
-		light2.light_energy = ENERGY_OPTIONS[curr_light]
-		light1.spot_range = RANGE_OPTIONS[curr_light]
-		light2.spot_range = RANGE_OPTIONS[curr_light]
-		light1.spot_angle = ANGLE_OPTIONS[curr_light]
-		light2.spot_angle = ANGLE_OPTIONS[curr_light]
+		#print("you lose")
 
 	# Movement
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
@@ -79,7 +62,7 @@ func _physics_process(delta) -> void:
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, turn_speed)
 	#velocity.z = -1 * speed
-	power -= 0.001 * (speed + ENERGY_OPTIONS[curr_light])
+	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
 	
 	# Head bob
 	#time += delta * 2
@@ -88,3 +71,13 @@ func _physics_process(delta) -> void:
 	#camera.transform.origin = pos
 
 	#move_and_slide()
+
+
+func set_lights(curr_light):
+	light_power = curr_light
+	light1.light_energy = ENERGY_OPTIONS[curr_light]
+	light2.light_energy = ENERGY_OPTIONS[curr_light]
+	light1.spot_range = RANGE_OPTIONS[curr_light]
+	light2.spot_range = RANGE_OPTIONS[curr_light]
+	light1.spot_angle = ANGLE_OPTIONS[curr_light]
+	light2.spot_angle = ANGLE_OPTIONS[curr_light]
