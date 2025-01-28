@@ -25,7 +25,6 @@ shape = SubResource("BoxShape3D_u2dtu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.822074, 0.56938, 0, -0.56938, 0.822074, 0, 4.38199, 7.51225)
 current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
