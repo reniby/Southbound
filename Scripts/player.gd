@@ -34,10 +34,10 @@ func _ready():
 		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
-	apply_force(Vector3.DOWN * 70)
+	apply_force(Vector3.DOWN * 20)
 	print(linear_velocity.length())
 	print(speed)
-	engine_force = 100 * max((speed - linear_velocity.length()),0)
+	engine_force = 200 * max((speed - linear_velocity.length()),0)
 	
 	if linear_velocity.length() > speed:
 		brake = 10 * min((linear_velocity.length() - speed),0)
