@@ -20,6 +20,11 @@ const ENERGY_OPTIONS = [0,8,20]
 const RANGE_OPTIONS = [0,36,4000]
 const ANGLE_OPTIONS = [0,23,30]
 var light_power = 0
+var dist = 0
+var score = 0
+var light_mult = 1.0
+var speed_mult = 1.0
+var mult = 1.0
 
 func _ready():
 	set_lights(0)
@@ -34,9 +39,9 @@ func _ready():
 		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
-	apply_force(Vector3.DOWN * 20)
-	print(linear_velocity.length())
-	print(speed)
+	apply_force(Vector3.DOWN * 50)
+	#print(linear_velocity.length())
+	#print(speed)
 	engine_force = 200 * max((speed - linear_velocity.length()),0)
 	
 	if linear_velocity.length() > speed:
@@ -45,7 +50,7 @@ func _physics_process(delta) -> void:
 		#engine_force = 1000
 	#else:
 		#brake = 50
-	steering = lerp(steering, Input.get_axis("left", "right") * turn_speed, delta * 5)
+	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*0.95)
 	
 	if power > 100:
 		power = 100
@@ -71,6 +76,12 @@ func _physics_process(delta) -> void:
 	#camera.transform.origin = pos
 
 	#move_and_slide()
+	
+	dist += linear_velocity.length() * delta
+	light_mult = ((light_power) * 0.1)
+	speed_mult = ((speed / 5) * 0.1)
+	mult = 1 + light_mult + speed_mult
+	score = dist * mult
 
 
 func set_lights(curr_light):

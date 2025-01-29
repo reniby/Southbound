@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgq1dxrjulyjr"]
+[gd_scene load_steps=5 format=3 uid="uid://bm6pwgdujbxdh"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_gfn7g"]
 
@@ -130,6 +130,25 @@ offset_right = 250.0
 offset_bottom = 1034.0
 scale = Vector2(1.25287, 1.61577)
 text = "B"
+
+[node name="MultLabel" type="RichTextLabel" parent="."]
+offset_top = 4.44915
+offset_right = 40.0
+offset_bottom = 44.4492
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/normal_font_size = 12
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/normal_font_size = 16
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="pressed" from="Gears/Low" to="." method="_on_low_pressed"]
 [connection signal="pressed" from="Gears/Med" to="." method="_on_med_pressed"]
