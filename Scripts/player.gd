@@ -46,7 +46,7 @@ func _physics_process(delta) -> void:
 	if linear_velocity.length() > speed:
 		brake = 10 * min((linear_velocity.length() - speed),0)
 		
-	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*0.95)
+	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*5)
 	
 	if power > 100:
 		power = 100

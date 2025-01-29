@@ -10,9 +10,8 @@ size = Vector3(1, 0.24469, 2.2334)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
 
 [node name="Player" type="VehicleBody3D"]
-mass = 500.0
+mass = 300.0
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, 0, -0.5)
 script = ExtResource("1_hj7uy")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
@@ -27,7 +26,6 @@ shape = SubResource("BoxShape3D_u2dtu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
-current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)
@@ -52,33 +50,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
 shape = SubResource("BoxShape3D_v7adf")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 7.90252e-09, -1.50789e-07, 0, 0.99863, 0.052336, 1.50996e-07, 0.052336, -0.99863, 1, 0, -1)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 1, 0, -2)
 use_as_traction = true
 use_as_steering = true
 wheel_friction_slip = 13.0
-suspension_travel = 0.3
-suspension_stiffness = 60.0
+suspension_stiffness = 40.0
+damping_compression = 0.9
+damping_relaxation = 1.2
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, -7.90252e-09, -1.50789e-07, 0, 0.99863, -0.052336, 1.50996e-07, -0.052336, -0.99863, -1, 0, -1)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -1, 0, -2)
 use_as_traction = true
 use_as_steering = true
 wheel_friction_slip = 13.0
-suspension_travel = 0.3
-suspension_stiffness = 60.0
+suspension_stiffness = 40.0
+damping_compression = 0.9
+damping_relaxation = 1.2
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, 1)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -1, 0, 1)
 use_as_traction = true
-wheel_radius = 0.6
 wheel_friction_slip = 13.0
-suspension_travel = 0.3
-suspension_stiffness = 60.0
+suspension_stiffness = 40.0
+damping_compression = 0.9
+damping_relaxation = 1.2
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, 1)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1, 0, 1)
 use_as_traction = true
-wheel_radius = 0.6
 wheel_friction_slip = 13.0
-suspension_travel = 0.3
-suspension_stiffness = 60.0
+suspension_stiffness = 40.0
+damping_compression = 0.9
+damping_relaxation = 1.2
