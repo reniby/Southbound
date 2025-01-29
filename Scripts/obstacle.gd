@@ -4,7 +4,7 @@ extends Node3D
 @export var obstacle_type : int
 @onready var fx: AudioStreamPlayer3D = $Area3D/AudioStreamPlayer3D
 
-var speed_changes = [1.0, 5.0]
+var speed_changes = [5.0, 5.0]
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

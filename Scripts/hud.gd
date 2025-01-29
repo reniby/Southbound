@@ -18,7 +18,7 @@ func _ready():
 func _process(delta: float) -> void:
 	progress_bar.value = player.power
 	
-	score_label.text = str(int(player.dist))
+	score_label.text = str(int(player.score))
 	if player.mult > 1.0:
 		mult_label.text = "x" + str(player.mult)
 	else:

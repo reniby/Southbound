@@ -14,6 +14,7 @@ var time = 0.0
 var speed
 var turn_speed = 0.4
 var power_steering = false
+var max_speed = false
 
 const SENSITIVITY = 0.004
 const ENERGY_OPTIONS = [0,8,20]
@@ -40,33 +41,22 @@ func _ready():
 
 func _physics_process(delta) -> void:
 	apply_force(Vector3.DOWN * 50)
-	#print(linear_velocity.length())
-	#print(speed)
 	engine_force = 200 * max((speed - linear_velocity.length()),0)
 	
 	if linear_velocity.length() > speed:
 		brake = 10 * min((linear_velocity.length() - speed),0)
-		#brake = 0
-		#engine_force = 1000
-	#else:
-		#brake = 50
+		
 	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*0.95)
 	
 	if power > 100:
 		power = 100
 	elif power <= 0:
 		power = 0
-		#print("you lose")
 
 	# Movement
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	
-	#if direction.x:
-		#velocity.x = direction.x * turn_speed
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, turn_speed)
-	#velocity.z = -1 * speed
 	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
 	
 	# Head bob
@@ -77,11 +67,22 @@ func _physics_process(delta) -> void:
 
 	#move_and_slide()
 	
-	dist += linear_velocity.length() * delta
-	light_mult = ((light_power) * 0.1)
-	speed_mult = ((speed / 5) * 0.1)
-	mult = 1 + light_mult + speed_mult
-	score = dist * mult
+	dist = linear_velocity.length() * delta
+	light_mult = (abs(light_power - 2) * 0.1)
+	
+
+	
+	if speed == 25.0 and max_speed:
+		speed_mult += 0.01 * delta
+	elif speed == 25.0:
+		speed_mult = ((speed / 5) * 0.1)
+		max_speed = true
+	else:
+		speed_mult = ((speed / 5) * 0.1)
+		max_speed = false
+		
+	mult = 1 + light_mult + snapped(speed_mult, 0.01)
+	score += dist * mult
 
 
 func set_lights(curr_light):
