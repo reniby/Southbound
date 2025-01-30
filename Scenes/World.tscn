@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=12 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
-[ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_55mw3"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="3_q2fj2"]
-[ext_resource type="PackedScene" uid="uid://cgq1dxrjulyjr" path="res://Scenes/hud.tscn" id="4_od0c4"]
+[ext_resource type="PackedScene" uid="uid://bm6pwgdujbxdh" path="res://Scenes/hud.tscn" id="4_od0c4"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lq0h"]
@@ -63,30 +62,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525513, -0.27317, 0.086940
 transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 0)
 
 [node name="road2" parent="Roads" groups=["Road2"] instance=ExtResource("1_pwtgb")]
-transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 114)
+transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, -57)
 
 [node name="road3" parent="Roads" groups=["Road3"] instance=ExtResource("1_pwtgb")]
+transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 114)
+
+[node name="road4" parent="Roads" groups=["Road4"] instance=ExtResource("1_pwtgb")]
 transform = Transform3D(10.9452, 0, 0, 0, 1, 0, 0, 0, 14.297, 0, 0, 57)
-
-[node name="Obstacles" type="Node3D" parent="."]
-
-[node name="obstacle" parent="Obstacles" instance=ExtResource("3_55mw3")]
-transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, 0, 0.328048, 7.96444)
-
-[node name="obstacle2" parent="Obstacles" instance=ExtResource("3_55mw3")]
-transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, 14.6152, 0.328048, -17.5306)
-
-[node name="obstacle3" parent="Obstacles" instance=ExtResource("3_55mw3")]
-transform = Transform3D(2.2812, 0, 0, 0, 1.64435, 0, 0, 0, 1, -10.2062, 0.328048, 72.9842)
-obstacle_type = 1
-
-[node name="PowerUps" type="Node3D" parent="."]
-
-[node name="Power Up" parent="PowerUps" instance=ExtResource("3_q2fj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.709022, 12)
-
-[node name="Power Up2" parent="PowerUps" instance=ExtResource("3_q2fj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85176, 0.72424, 65.1153)
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -119,3 +101,8 @@ draw_pass_1 = SubResource("RibbonTrailMesh_svto2")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_od0c4")]
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Power Up" parent="Pickups" instance=ExtResource("3_q2fj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)

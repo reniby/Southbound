@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgpapb3koxqf5"]
+[gd_scene load_steps=7 format=3 uid="uid://dgpapb3koxqf5"]
 
 [ext_resource type="Material" uid="uid://b4s0xnt1f6lia" path="res://Assets/Materials/Green.tres" id="1_dfht1"]
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
+[ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
+[ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_6tshc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qg16h"]
 
@@ -11,6 +13,8 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [node name="road" type="Node3D"]
 transform = Transform3D(1.99871, 0, 0, 0, 1, 0, 0, 0, 1.97951, 0, 0, 0)
 script = ExtResource("1_kwlmd")
+pickup = ExtResource("2_wbpfe")
+obstacle = ExtResource("3_6tshc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
