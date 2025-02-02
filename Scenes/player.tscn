@@ -10,22 +10,23 @@ size = Vector3(1, 0.24469, 2.2334)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
 
 [node name="Player" type="VehicleBody3D"]
-mass = 300.0
+mass = 500.0
 center_of_mass_mode = 1
 script = ExtResource("1_hj7uy")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 2.2829, 0, 0.176988, 0)
+transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 3.04829, 0, 0.176988, -0.518714)
 mesh = SubResource("BoxMesh_futcf")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.69221, 0, 0, 0, 1.03653, 0, 0, 0, 1.03653, 0, 0.177, 0)
+transform = Transform3D(1.69221, 0, 0, 0, 1.03653, 0, 0, 0, 1.38405, 0, 0.177, -0.518714)
 shape = SubResource("BoxShape3D_u2dtu")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330785, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.947713, 0, -0.319125, 0, 1, 0, 0.319125, 0, 0.947713, 0.75, 1, -0.75)

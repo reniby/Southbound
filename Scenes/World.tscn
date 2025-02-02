@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://db2h3t17k37pe"]
+[gd_scene load_steps=11 format=3 uid="uid://db2h3t17k37pe"]
 
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="1_pwtgb"]
-[ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="3_q2fj2"]
 [ext_resource type="PackedScene" uid="uid://bm6pwgdujbxdh" path="res://Scenes/hud.tscn" id="4_od0c4"]
 [ext_resource type="PackedScene" uid="uid://byiip1duovchx" path="res://Scenes/player.tscn" id="5_f8doh"]
 
@@ -104,5 +103,4 @@ draw_pass_1 = SubResource("RibbonTrailMesh_svto2")
 
 [node name="Pickups" type="Node" parent="."]
 
-[node name="Power Up" parent="Pickups" instance=ExtResource("3_q2fj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+[node name="Obstacles" type="Node" parent="."]
