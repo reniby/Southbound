@@ -53,25 +53,11 @@ func _physics_process(delta) -> void:
 	elif power <= 0:
 		power = 0
 
-	# Movement
 	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
-	
 	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
-	
-	# Head bob
-	#time += delta * 2
-	#var pos = Vector3.ZERO
-	#pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	#camera.transform.origin = pos
-
-	#move_and_slide()
-	
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
-	
 
-	
 	if speed == 25.0 and max_speed:
 		speed_mult += 0.01 * delta
 	elif speed == 25.0:
