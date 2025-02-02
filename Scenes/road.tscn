@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgpapb3koxqf5"]
+[gd_scene load_steps=14 format=3 uid="uid://dgpapb3koxqf5"]
 
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_6tshc"]
 [ext_resource type="PackedScene" uid="uid://nvqcmdklhoh7" path="res://Assets/Models/bm-tile-highway.gltf" id="4_ppox2"]
-[ext_resource type="PackedScene" uid="uid://ir7tlnny713o" path="res://Scenes/trees.tscn" id="5_plfwj"]
+[ext_resource type="PackedScene" path="res://Scenes/trees.tscn" id="5_plfwj"]
+[ext_resource type="Material" uid="uid://oe6c3p6vrk4" path="res://Assets/Materials/tree/material_1.tres" id="5_uufu5"]
+[ext_resource type="Material" uid="uid://ca4wnf21j0dx0" path="res://Assets/Materials/tree/material_10.tres" id="6_41m57"]
 [ext_resource type="PackedScene" uid="uid://bcmj4dsdqg381" path="res://Assets/Models/mountain.gltf" id="6_pq1dl"]
 [ext_resource type="Material" uid="uid://bap1ha8qe5g2v" path="res://Assets/Materials/mountain/material_0.tres" id="7_6lplj"]
 
@@ -41,8 +43,26 @@ shape = SubResource("ConcavePolygonShape3D_c16ot")
 [node name="bm-tile-highway" parent="." instance=ExtResource("4_ppox2")]
 transform = Transform3D(0.07, 0, 0, 0, 0.14, 0, 0, 0, 0.071, 0, -0.099, -0.75)
 
+[node name="curb_right" parent="bm-tile-highway/Node/bm_road/bm_tile_highway/highway/curbs" index="0"]
+surface_material_override/0 = ExtResource("5_uufu5")
+
+[node name="curb_left" parent="bm-tile-highway/Node/bm_road/bm_tile_highway/highway/curbs" index="1"]
+surface_material_override/0 = ExtResource("5_uufu5")
+
+[node name="asphalt" parent="bm-tile-highway/Node/bm_road/bm_tile_highway/highway/road" index="0"]
+surface_material_override/0 = ExtResource("6_41m57")
+
 [node name="bm-tile-highway2" parent="." instance=ExtResource("4_ppox2")]
 transform = Transform3D(0.07, 0, 0, 0, 0.14, 0, 0, 0, 0.071, 0, -0.099, 0.75)
+
+[node name="curb_right" parent="bm-tile-highway2/Node/bm_road/bm_tile_highway/highway/curbs" index="0"]
+surface_material_override/0 = ExtResource("5_uufu5")
+
+[node name="curb_left" parent="bm-tile-highway2/Node/bm_road/bm_tile_highway/highway/curbs" index="1"]
+surface_material_override/0 = ExtResource("5_uufu5")
+
+[node name="asphalt" parent="bm-tile-highway2/Node/bm_road/bm_tile_highway/highway/road" index="0"]
+surface_material_override/0 = ExtResource("6_41m57")
 
 [node name="Lines" type="Node3D" parent="."]
 
@@ -166,5 +186,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nymr6")
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 
+[editable path="bm-tile-highway"]
+[editable path="bm-tile-highway2"]
 [editable path="mountain"]
 [editable path="mountain2"]
