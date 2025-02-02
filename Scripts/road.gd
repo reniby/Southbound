@@ -45,7 +45,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			r_pos = random_position(prev_road)
 			new_pickup.position.z = r_pos[0]
 			new_pickup.position.x = r_pos[1]
-			new_pickup.position.y = 0.7
+			new_pickup.position.y = 1.5
 			pickups.add_child(new_pickup)
 		
 		for i in rng.randi_range(int(blocks_found)-1, int(blocks_found)+1):
@@ -53,7 +53,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			r_pos = random_position(prev_road)
 			new_obstacle.position.z = r_pos[0]
 			new_obstacle.position.x = r_pos[1]
-			new_obstacle.position.y = 0.7
+			new_obstacle.position.y = 1.5
 			obstacles.add_child(new_obstacle)
 
 

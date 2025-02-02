@@ -1,17 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgpapb3koxqf5"]
+[gd_scene load_steps=12 format=3 uid="uid://dgpapb3koxqf5"]
 
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_6tshc"]
+[ext_resource type="PackedScene" uid="uid://nvqcmdklhoh7" path="res://Assets/Models/bm-tile-highway.gltf" id="4_ppox2"]
+[ext_resource type="PackedScene" uid="uid://ir7tlnny713o" path="res://Scenes/trees.tscn" id="5_plfwj"]
+[ext_resource type="PackedScene" uid="uid://bcmj4dsdqg381" path="res://Assets/Models/mountain.gltf" id="6_pq1dl"]
+[ext_resource type="Material" uid="uid://bap1ha8qe5g2v" path="res://Assets/Materials/mountain/material_0.tres" id="7_6lplj"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c16ot"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4umue"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qg16h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymr6"]
-albedo_color = Color(0.27451, 0.384314, 0.184314, 1)
+albedo_color = Color(0.11416, 0.0699122, 0.0371156, 1)
 metallic_specular = 0.0
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c16ot"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="road" type="Node3D"]
 transform = Transform3D(1.99871, 0, 0, 0, 1, 0, 0, 0, 1.97951, 0, 0, 0)
@@ -20,11 +26,7 @@ pickup = ExtResource("2_wbpfe")
 obstacle = ExtResource("3_6tshc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_qg16h")
-surface_material_override/0 = SubResource("StandardMaterial3D_nymr6")
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_c16ot")
@@ -36,5 +38,133 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00504172, 0)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_c16ot")
 
+[node name="bm-tile-highway" parent="." instance=ExtResource("4_ppox2")]
+transform = Transform3D(0.07, 0, 0, 0, 0.14, 0, 0, 0, 0.071, 0, -0.099, -0.75)
+
+[node name="bm-tile-highway2" parent="." instance=ExtResource("4_ppox2")]
+transform = Transform3D(0.07, 0, 0, 0, 0.14, 0, 0, 0, 0.071, 0, -0.099, 0.75)
+
+[node name="Lines" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, 0.405, 0.021, -1.071)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, -0.405, 0.021, -1.071)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, 0.405, 0.021, 0)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, -0.405, 0.021, 0)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, 0.405, 0.021, 1.07145)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 0.192323, -0.405, 0.021, 1.07145)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="Long1" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 2.03192, -1.11927, 0.021, -0.00361912)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="Long2" type="MeshInstance3D" parent="Lines"]
+transform = Transform3D(0.021197, 0, 0, 0, 0.221472, 0, 0, 0, 2.03192, 1.119, 0.021, -0.004)
+mesh = SubResource("PlaneMesh_4umue")
+skeleton = NodePath("../..")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="trees" parent="Trees" instance=ExtResource("5_plfwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280022, -0.503808, 0)
+
+[node name="trees2" parent="Trees" instance=ExtResource("5_plfwj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.39889, -1.44146, 0.266514)
+
+[node name="trees3" parent="Trees" instance=ExtResource("5_plfwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33444, -2.07059, -0.213451)
+
+[node name="mountain" parent="." instance=ExtResource("6_pq1dl")]
+transform = Transform3D(-0.750297, -0.642144, -0.157178, 0.572741, -0.750122, 0.330583, -0.330184, 0.158014, 0.930597, 7.5902, 5.02017, -0.21559)
+
+[node name="Dodecahedron 4" parent="mountain/Node/bm_tree_orange" index="0"]
+transform = Transform3D(0.864442, 0.328382, -0.109668, 0.028736, 0.113493, 0.985101, 0.501909, -0.572073, 0.132481, 428.177, 1005.39, 171.732)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 6" parent="mountain/Node/bm_tree_orange" index="1"]
+transform = Transform3D(0.864443, 0.265713, -0.426773, 0.0287361, 0.821405, 0.569621, 0.501909, -0.504668, 0.702422, 514.393, 1050.27, 125.934)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 5" parent="mountain/Node/bm_tree_orange" index="2"]
+transform = Transform3D(0.864443, 0.288984, -0.411371, 0.028736, 0.788533, 0.614321, 0.501909, -0.542867, 0.673337, 612.407, 1070.82, -26.8134)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 7" parent="mountain/Node/bm_tree_orange" index="3"]
+transform = Transform3D(0.864442, 0.235265, -0.444285, 0.0287359, 0.859174, 0.510876, 0.501909, -0.454389, 0.735946, 573.412, 926.461, -38.2093)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 3" parent="mountain/Node/bm_tree_orange" index="4"]
+transform = Transform3D(0.864443, 0.497956, 0.0691222, 0.0287361, -0.186211, 0.982089, 0.501909, -0.846974, -0.175278, 693.411, 853.272, 28.3254)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron" parent="mountain/Node/bm_tree_orange" index="5"]
+transform = Transform3D(0.864443, 0.497956, 0.0691222, 0.0287361, -0.186211, 0.982089, 0.501909, -0.846974, -0.175278, 652.88, 827.052, 66.1666)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="mountain2" parent="." instance=ExtResource("6_pq1dl")]
+transform = Transform3D(-0.750297, -0.642144, -0.157178, 0.572741, -0.750122, 0.330583, -0.330184, 0.158014, 0.930597, 7.5902, 5.02017, -0.21559)
+
+[node name="Dodecahedron 4" parent="mountain2/Node/bm_tree_orange" index="0"]
+transform = Transform3D(0.864442, 0.328382, -0.109668, 0.028736, 0.113493, 0.985101, 0.501909, -0.572073, 0.132481, 428.177, 1005.39, 171.732)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 6" parent="mountain2/Node/bm_tree_orange" index="1"]
+transform = Transform3D(0.864443, 0.265713, -0.426773, 0.0287361, 0.821405, 0.569621, 0.501909, -0.504668, 0.702422, 514.393, 1050.27, 125.934)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 5" parent="mountain2/Node/bm_tree_orange" index="2"]
+transform = Transform3D(0.864443, 0.288984, -0.411371, 0.028736, 0.788533, 0.614321, 0.501909, -0.542867, 0.673337, 612.407, 1070.82, -26.8134)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 7" parent="mountain2/Node/bm_tree_orange" index="3"]
+transform = Transform3D(0.864442, 0.235265, -0.444285, 0.0287359, 0.859174, 0.510876, 0.501909, -0.454389, 0.735946, 573.412, 926.461, -38.2093)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron 3" parent="mountain2/Node/bm_tree_orange" index="4"]
+transform = Transform3D(0.864443, 0.497956, 0.0691222, 0.0287361, -0.186211, 0.982089, 0.501909, -0.846974, -0.175278, 693.411, 853.272, 28.3254)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="Dodecahedron" parent="mountain2/Node/bm_tree_orange" index="5"]
+transform = Transform3D(0.864443, 0.497956, 0.0691222, 0.0287361, -0.186211, 0.982089, 0.501909, -0.846974, -0.175278, 652.88, 827.052, 66.1666)
+surface_material_override/0 = ExtResource("7_6lplj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, -1.4658, 0, 0)
+mesh = SubResource("PlaneMesh_qg16h")
+skeleton = NodePath("../StaticBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_nymr6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.14709, 1.79722, 0, -1.79722, 2.14709, 0, 0, 0, 2.8, 3.43395, -1.75095, 0)
+mesh = SubResource("PlaneMesh_qg16h")
+skeleton = NodePath("../StaticBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_nymr6")
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="mountain"]
+[editable path="mountain2"]

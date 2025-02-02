@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ir7tlnny713o"]
+
+[ext_resource type="PackedScene" uid="uid://mjb85oib0rwm" path="res://Assets/Models/bm-tree-green.gltf" id="1_fy3xw"]
+[ext_resource type="PackedScene" uid="uid://dq0w3yqam3lir" path="res://Assets/Models/bm-tree-brown.gltf" id="2_gf7bc"]
+
+[node name="trees" type="Node3D"]
+
+[node name="left-tree-green" parent="." instance=ExtResource("1_fy3xw")]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.202, 1.73241, 4.76837e-07, -1.58729)
+
+[node name="left-tree-brown" parent="." instance=ExtResource("2_gf7bc")]
+transform = Transform3D(0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.152, 1.73584, 0, -0.845634)
+
+[node name="left-tree-green2" parent="." instance=ExtResource("1_fy3xw")]
+transform = Transform3D(0.125487, 0, -0.123369, 0, 0.35, 0, 0.121975, 0, 0.126921, 1.6461, 0, 0)
+
+[node name="left-tree-green3" parent="." instance=ExtResource("1_fy3xw")]
+transform = Transform3D(0.075, 0, 0, 0, 0.15, 0, 0, 0, 0.077, 1.55205, 0, 0.493785)
+
+[node name="left-tree-brown2" parent="." instance=ExtResource("2_gf7bc")]
+transform = Transform3D(-0.0896571, 0, 0.236171, 0, 0.5, 0, -0.23337, 0, -0.090733, 1.72682, 0, 0.846567)
+
+[node name="left-tree-green4" parent="." instance=ExtResource("1_fy3xw")]
+transform = Transform3D(0.10035, 0, -0.112976, 0, 0.3, 0, 0.111489, 0, 0.101688, 1.50036, 0, 1.53333)

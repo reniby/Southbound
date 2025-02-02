@@ -31,6 +31,98 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_0.tres"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_1.tres"
+},
+"material_10": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_10.tres"
+},
+"material_11": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_11.tres"
+},
+"material_12": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_12.tres"
+},
+"material_13": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_13.tres"
+},
+"material_14": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_14.tres"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_2.tres"
+},
+"material_3": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_3.tres"
+},
+"material_4": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_4.tres"
+},
+"material_5": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_5.tres"
+},
+"material_6": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_6.tres"
+},
+"material_7": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_7.tres"
+},
+"material_8": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_8.tres"
+},
+"material_9": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/material_9.tres"
+}
+},
+"nodes": {
+"PATH:Node/bm_road/Camera": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/Default Ambient Light": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/grass": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/Node2": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/Node3": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/lane_left": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/lane_left 2": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/lane_left 3": {
+"import/skip_import": true
+},
+"PATH:Node/bm_road/bm_tile_highway/highway/road/lane_right": {
+"import/skip_import": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://clajb40r4li74"]
+
+[ext_resource type="Texture2D" uid="uid://c00rffioo8frs" path="res://Assets/Models/bm-tile-highway_0.jpg" id="1_ct306"]
+
+[resource]
+resource_name = "material_5"
+albedo_texture = ExtResource("1_ct306")
+roughness = 0.995
+texture_filter = 1
