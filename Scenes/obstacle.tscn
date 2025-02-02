@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://kyysd8qe5d2w"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_kw7oy"]
-[ext_resource type="PackedScene" uid="uid://cr1agvtx1dpe4" path="res://Assets/Models/BM Blockade.gltf" id="2_nh8si"]
 [ext_resource type="AudioStream" uid="uid://dv7rpg7ywdmci" path="res://Audio/FX/mixkit-car-window-breaking-1551.wav" id="3_s5poy"]
+[ext_resource type="PackedScene" uid="uid://bm4v5wlmpoumq" path="res://Assets/Models/bm-blockade.gltf" id="4_lqkeh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk4tj"]
 
@@ -12,8 +12,8 @@ script = ExtResource("1_kw7oy")
 
 [node name="Area3D" type="Area3D" parent="."]
 
-[node name="Mesh" parent="Area3D" instance=ExtResource("2_nh8si")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+[node name="bm-blockade" parent="Area3D" instance=ExtResource("4_lqkeh")]
+transform = Transform3D(0.3, 0, 0, 0, 0.416, 0, 0, 0, 0.685, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0697304, 0)

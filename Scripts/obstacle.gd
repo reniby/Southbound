@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var mesh: Node3D = $Area3D/Mesh
+@onready var mesh: Node3D = $"Area3D/bm-blockade"
 @export var obstacle_type : int
 @onready var fx: AudioStreamPlayer3D = $Area3D/AudioStreamPlayer3D
 
