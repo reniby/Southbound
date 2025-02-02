@@ -16,6 +16,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if player.power <= 0:
+		State.high_scores.append(player.score)
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
 	progress_bar.value = player.power
 	
 	score_label.text = str(int(player.score))

@@ -29,7 +29,7 @@ var speed_mult = 1.0
 var mult = 1.0
 
 func _ready():
-	set_lights(0)
+	set_lights(1)
 	speed = 5.0
 #
 #func _unhandled_input(event):
@@ -60,7 +60,7 @@ func _physics_process(delta) -> void:
 	elif power <= 0:
 		power = 0
 
-	power -= 0.0001 * (speed + ENERGY_OPTIONS[light_power])
+	power -= 0.01 * (speed + ENERGY_OPTIONS[light_power])
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
 

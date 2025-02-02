@@ -1,41 +1,177 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckfgi04pyu0iu"]
+[gd_scene load_steps=10 format=3 uid="uid://ckfgi04pyu0iu"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_tnq7o"]
+[ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="2_x4prd"]
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s2wv8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_f6bkd"]
+sky_material = SubResource("ProceduralSkyMaterial_s2wv8")
+
+[sub_resource type="Environment" id="Environment_rtgbg"]
+background_mode = 1
+background_color = Color(0.00668428, 0.0182566, 0.119167, 1)
+sky = SubResource("Sky_f6bkd")
+tonemap_mode = 2
+fog_height = 1024.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0886
+volumetric_fog_albedo = Color(0.114897, 0.114897, 0.114897, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yr1jh"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 20)
+angle_min = 90.0
+angle_max = 90.0
+direction = Vector3(0, -1, 0)
+spread = 6.02
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+color = Color(0.635294, 0.635294, 0.635294, 0.309804)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_qu7yv"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.144279, 0.0167372), 0.0, 0.0, 0, 0, Vector2(0.996683, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlv16"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.851769, 0.851769, 0.851769, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_6ideu"]
+material = SubResource("StandardMaterial3D_mlv16")
+curve = SubResource("Curve_qu7yv")
+
+[node name="Menu" type="Node3D"]
 script = ExtResource("1_tnq7o")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -148.0
-offset_top = -91.0
-offset_right = 2114.0
-offset_bottom = 1219.0
-color = Color(0.0923299, 0, 0.837393, 1)
+[node name="Roads" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525513, -0.27317, 0.0869408)
+
+[node name="road1" parent="Roads" groups=["Road1"] instance=ExtResource("2_x4prd")]
+transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 0)
+disabled = true
+
+[node name="road2" parent="Roads" groups=["Road2"] instance=ExtResource("2_x4prd")]
+transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, -57)
+disabled = true
+
+[node name="road3" parent="Roads" groups=["Road3"] instance=ExtResource("2_x4prd")]
+transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 114)
+disabled = true
+
+[node name="road4" parent="Roads" groups=["Road4"] instance=ExtResource("2_x4prd")]
+transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 57)
+disabled = true
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.70911, 0.950684)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.659554, 0)
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_rtgbg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.495919, -0.680099, 0.539934, -0.063775, 0.591576, 0.803723, 0, 0, 0)
+light_energy = 2.293
+light_angular_distance = 31.71
+shadow_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.787903, 1.05774, 0, -0.615799, 1.35336, 0.188629, 15.1497, -3.16558)
+amount = 10000
+lifetime = 2.78
+preprocess = 1.0
+randomness = 0.44
+trail_enabled = true
+trail_lifetime = 0.04
+process_material = SubResource("ParticleProcessMaterial_yr1jh")
+draw_pass_1 = SubResource("RibbonTrailMesh_6ideu")
 
 [node name="Start" type="Button" parent="."]
-offset_left = 197.0
-offset_top = 662.0
-offset_right = 836.0
-offset_bottom = 976.0
-theme_override_font_sizes/font_size = 150
-text = "Start"
+visible = false
+offset_left = 196.0
+offset_top = 710.0
+offset_right = 322.0
+offset_bottom = 741.0
+scale = Vector2(5.64225, 6.32669)
+disabled = true
+text = "START DRIVING"
 
-[node name="Zen" type="Button" parent="."]
-offset_left = 1047.0
-offset_top = 663.0
-offset_right = 1674.0
-offset_bottom = 982.0
-theme_override_font_sizes/font_size = 150
-text = "Zen"
+[node name="Title" type="Label" parent="."]
+visible = false
+offset_left = 207.0
+offset_top = 124.0
+offset_right = 407.0
+offset_bottom = 169.0
+scale = Vector2(8.9276, 12.3559)
+theme_override_font_sizes/font_size = 28
+text = "South Bound"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 305.0
-offset_top = 194.0
-offset_right = 1596.0
-offset_bottom = 543.0
-theme_override_font_sizes/font_size = 250
-text = "DRIVE CAR"
-wrap_mode = 1
+[node name="Leaderboard" type="Button" parent="."]
+visible = false
+offset_left = 1048.0
+offset_top = 712.0
+offset_right = 1175.0
+offset_bottom = 743.0
+scale = Vector2(5.64225, 6.32669)
+disabled = true
+text = "LEADERBOARD"
+
+[node name="Tutorial" type="Label" parent="."]
+visible = false
+offset_left = 153.0
+offset_top = 24.0
+offset_right = 437.0
+offset_bottom = 89.0
+scale = Vector2(5.8076, 12.3559)
+theme_override_font_sizes/font_size = 10
+text = "Use your headlights to see farther, 
+and your gear shift to speed up.
+Both will make your gas tank drain.
+Pick up gas cans and avoid obstacles to rack up points!
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Begin" type="Button" parent="."]
+visible = false
+offset_left = 634.0
+offset_top = 845.0
+offset_right = 760.0
+offset_bottom = 876.0
+scale = Vector2(5.64225, 6.32669)
+disabled = true
+text = "BEGIN"
+
+[node name="Scores" type="Label" parent="."]
+visible = false
+offset_left = 145.0
+offset_top = 88.0
+offset_right = 429.0
+offset_bottom = 170.0
+scale = Vector2(5.79319, 7.76547)
+theme_override_font_sizes/font_size = 10
+text = "1. asdf
+2. asfd
+3. asdf
+4. asdf
+5. asdfr"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Zen" to="." method="_on_zen_pressed"]
+[connection signal="pressed" from="Begin" to="." method="_on_begin_pressed"]
