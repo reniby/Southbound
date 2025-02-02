@@ -78,6 +78,7 @@ func _physics_process(delta) -> void:
 
 func _integrate_forces(state):
 	rotation.y = clamp(rotation.y, deg_to_rad(-40.0), deg_to_rad(40.0))
+	rotation.x = clamp(rotation.x, deg_to_rad(-40.0), deg_to_rad(40.0))
 
 func set_lights(curr_light):
 	light_power = curr_light

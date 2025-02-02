@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgpapb3koxqf5"]
+[gd_scene load_steps=15 format=3 uid="uid://dgpapb3koxqf5"]
 
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
@@ -20,6 +20,9 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymr6"]
 albedo_color = Color(0.11416, 0.0699122, 0.0371156, 1)
 metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4070d"]
+size = Vector3(0.00878906, 1, 3.50049)
 
 [node name="road" type="Node3D"]
 transform = Transform3D(1.99871, 0, 0, 0, 1, 0, 0, 0, 1.97951, 0, 0, 0)
@@ -183,8 +186,37 @@ mesh = SubResource("PlaneMesh_qg16h")
 skeleton = NodePath("../StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_nymr6")
 
+[node name="barrier1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.537918, -0.853243, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="barrier1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier1/StaticBody3D2"]
+transform = Transform3D(11.1511, 0, 0, 0, 1.91799, 0, 0, 0, 1.66374, -0.743047, 1.35941, 0.00142557)
+shape = SubResource("BoxShape3D_4070d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier1"]
+transform = Transform3D(42.7355, 0, 0, 0, 1.91799, 0, 0, 0, 1.66045, -0.773771, 1.34701, 0.00142557)
+shape = SubResource("BoxShape3D_4070d")
+
+[node name="barrier2" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.538, -0.853, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="barrier2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier2/StaticBody3D2"]
+transform = Transform3D(11.1511, 0, 0, 0, 1.91799, 0, 0, 0, 1.66374, -0.743047, 1.35941, 0.00142557)
+shape = SubResource("BoxShape3D_4070d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier2"]
+transform = Transform3D(42.7355, 0, 0, 0, 1.91799, 0, 0, 0, 1.66045, -0.773771, 1.34701, 0.00142557)
+shape = SubResource("BoxShape3D_4070d")
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="barrier1" to="." method="_on_barrier_1_area_entered"]
+[connection signal="body_entered" from="barrier1" to="." method="_on_barrier_1_body_entered"]
+[connection signal="area_entered" from="barrier2" to="." method="_on_barrier_2_area_entered"]
 
 [editable path="bm-tile-highway"]
 [editable path="bm-tile-highway2"]

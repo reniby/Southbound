@@ -57,16 +57,16 @@ curve = SubResource("Curve_qu7yv")
 [node name="Roads" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525513, -0.27317, 0.0869408)
 
-[node name="road1" parent="Roads" groups=["Road1"] instance=ExtResource("1_pwtgb")]
+[node name="road1" parent="Roads" instance=ExtResource("1_pwtgb")]
 transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 0)
 
-[node name="road2" parent="Roads" groups=["Road2"] instance=ExtResource("1_pwtgb")]
+[node name="road2" parent="Roads" instance=ExtResource("1_pwtgb")]
 transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, -57)
 
-[node name="road3" parent="Roads" groups=["Road3"] instance=ExtResource("1_pwtgb")]
+[node name="road3" parent="Roads" instance=ExtResource("1_pwtgb")]
 transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 114)
 
-[node name="road4" parent="Roads" groups=["Road4"] instance=ExtResource("1_pwtgb")]
+[node name="road4" parent="Roads" instance=ExtResource("1_pwtgb")]
 transform = Transform3D(17.991, 0, 0, 0, 9, 0, 0, 0, 17.82, 0, 0, 57)
 
 [node name="Env" type="Node3D" parent="."]

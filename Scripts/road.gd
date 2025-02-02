@@ -26,15 +26,16 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		blocks_found += 0.25
 		var prev_road
 
-		var road_order = ["Road1","Road2","Road3","Road4"]
+		var road_order = ["road1","road2","road3","road4"]
 		var roads = [road_1, road_2, road_3, road_4]
 		for r in len(road_order):
-			if self.is_in_group(road_order[r]):
+			if self.name == road_order[r]:
 				prev_road = roads[(r+2)%4]
 
 		# remove existing items
 		for item in prev_road.get_node("Area3D").get_overlapping_areas():
-			item.queue_free()
+			if item.name != "barrier1" and item.name != "barrier2":
+				item.queue_free()
 
 		# spawn new items
 		prev_road.position.z -= road_size * road_blocks
@@ -71,3 +72,22 @@ func random_position(prev_road):
 
 	seen_pos.append(r_pos)
 	return r_pos
+
+
+func _on_barrier_1_area_entered(area: Area3D) -> void:
+	if area.get_parent_node_3d().name == "Player":
+		area.get_parent_node_3d().power -= 10
+		area.get_parent_node_3d().speed = 10.0
+		area.get_parent_node_3d().hit = true
+		area.get_parent_node_3d().rotation.y = -25
+		
+		
+
+
+func _on_barrier_2_area_entered(area: Area3D) -> void:
+	if area.get_parent_node_3d().name == "Player":
+		area.get_parent_node_3d().power -= 10
+		area.get_parent_node_3d().speed = 10.0
+		area.get_parent_node_3d().hit = true
+		area.get_parent_node_3d().rotation.y = 25
+		
