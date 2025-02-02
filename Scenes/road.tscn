@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
 [ext_resource type="PackedScene" uid="uid://kyysd8qe5d2w" path="res://Scenes/obstacle.tscn" id="3_6tshc"]
 [ext_resource type="PackedScene" uid="uid://nvqcmdklhoh7" path="res://Assets/Models/bm-tile-highway.gltf" id="4_ppox2"]
-[ext_resource type="PackedScene" path="res://Scenes/trees.tscn" id="5_plfwj"]
+[ext_resource type="PackedScene" uid="uid://ir7tlnny713o" path="res://Scenes/trees.tscn" id="5_plfwj"]
 [ext_resource type="Material" uid="uid://oe6c3p6vrk4" path="res://Assets/Materials/tree/material_1.tres" id="5_uufu5"]
 [ext_resource type="Material" uid="uid://ca4wnf21j0dx0" path="res://Assets/Materials/tree/material_10.tres" id="6_41m57"]
 [ext_resource type="PackedScene" uid="uid://bcmj4dsdqg381" path="res://Assets/Models/mountain.gltf" id="6_pq1dl"]

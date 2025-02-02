@@ -1,16 +1,5 @@
 extends Node3D
 
-@onready var road_1: Node3D = $"../road1"
-@onready var road_2: Node3D = $"../road2"
-@onready var road_3: Node3D = $"../road3"
-@onready var road_4: Node3D = $"../road4"
-@onready var pickups: Node = $"../../Pickups"
-@onready var obstacles: Node = $"../../Obstacles"
-
-@export var pickup: PackedScene
-@export var obstacle: PackedScene
-
-@onready var player: VehicleBody3D = $"../../Player"
 var road_blocks = 4
 var road_size = 57
 
@@ -19,6 +8,27 @@ var x_spacing = 12
 var z_lanes = 4.0
 var rng = RandomNumberGenerator.new()
 var seen_pos = []
+
+@export var pickup: PackedScene
+@export var obstacle: PackedScene
+@export var disabled = false
+
+var road_1: Node3D
+var road_2: Node3D
+var road_3: Node3D
+var road_4: Node3D
+var pickups: Node
+var obstacles: Node
+var player: VehicleBody3D
+func _ready():
+	if not disabled:
+		road_1 = $"../road1"
+		road_2 = $"../road2"
+		road_3 = $"../road3"
+		road_4 = $"../road4"
+		pickups = $"../../Pickups"
+		obstacles = $"../../Obstacles"
+		player = $"../../Player"
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().name == "Player":
