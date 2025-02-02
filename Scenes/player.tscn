@@ -4,8 +4,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_futcf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u2dtu"]
-size = Vector3(1, 0.24469, 2.2334)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ktgia"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
 
@@ -18,9 +17,9 @@ script = ExtResource("1_hj7uy")
 transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 3.04829, 0, 0.176988, -0.518714)
 mesh = SubResource("BoxMesh_futcf")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.69221, 0, 0, 0, 1.03653, 0, 0, 0, 1.38405, 0, 0.177, -0.518714)
-shape = SubResource("BoxShape3D_u2dtu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 3.04829, 0, 0.176988, -0.518714)
+shape = SubResource("BoxShape3D_ktgia")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)

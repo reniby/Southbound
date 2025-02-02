@@ -16,7 +16,7 @@ var road_size = 57
 
 var blocks_found = 1
 var x_spacing = 12
-var z_lanes = 4
+var z_lanes = 4.0
 var rng = RandomNumberGenerator.new()
 var seen_pos = []
 
@@ -63,7 +63,7 @@ func random_position(prev_road):
 	while true:
 		var temp = []
 		var positions = [-1.5, -0.5, 0.5, 1.5]
-		temp.append(prev_road.position.z + (positions.pick_random() * floor(road_size / z_lanes)))
+		temp.append(prev_road.position.z + (positions.pick_random() * (road_size / z_lanes)))
 		temp.append(rng.randi_range(-1, 1) * x_spacing)
 		if temp not in seen_pos:
 			r_pos = temp
