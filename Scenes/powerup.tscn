@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcsuknevy4bpw"]
 
 [ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
+[ext_resource type="PackedScene" uid="uid://cr3vavf83i86m" path="res://Assets/Models/bm.pickup.gasoline.gltf" id="2_ycv10"]
 [ext_resource type="AudioStream" uid="uid://v5xsvqy1dyhq" path="res://Audio/FX/mixkit-unlock-game-notification-253.wav" id="3_m22qk"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fcma7"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdrq8"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdfok"]
 
 [node name="Power Up" type="Node3D"]
 script = ExtResource("1_ltpmm")
 
 [node name="Area3D" type="Area3D" parent="."]
 
-[node name="Mesh" type="MeshInstance3D" parent="Area3D"]
-mesh = SubResource("CapsuleMesh_fcma7")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_cdfok")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("CapsuleShape3D_sdrq8")
+[node name="bm_pickup_gasoline" parent="Area3D" instance=ExtResource("2_ycv10")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Area3D"]
 stream = ExtResource("3_m22qk")
