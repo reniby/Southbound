@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgpapb3koxqf5"]
+[gd_scene load_steps=16 format=3 uid="uid://dgpapb3koxqf5"]
 
 [ext_resource type="Script" path="res://Scripts/road.gd" id="1_kwlmd"]
 [ext_resource type="PackedScene" uid="uid://bcsuknevy4bpw" path="res://Scenes/powerup.tscn" id="2_wbpfe"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://ca4wnf21j0dx0" path="res://Assets/Materials/tree/material_10.tres" id="6_41m57"]
 [ext_resource type="PackedScene" uid="uid://bcmj4dsdqg381" path="res://Assets/Models/mountain.gltf" id="6_pq1dl"]
 [ext_resource type="Material" uid="uid://bap1ha8qe5g2v" path="res://Assets/Materials/mountain/material_0.tres" id="7_6lplj"]
+[ext_resource type="AudioStream" uid="uid://dv7rpg7ywdmci" path="res://Audio/FX/mixkit-car-window-breaking-1551.wav" id="10_4h3x6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c16ot"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -211,6 +212,10 @@ shape = SubResource("BoxShape3D_4070d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="barrier2"]
 transform = Transform3D(42.7355, 0, 0, 0, 1.91799, 0, 0, 0, 1.66045, -0.773771, 1.34701, 0.00142557)
 shape = SubResource("BoxShape3D_4070d")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_4h3x6")
+volume_db = 8.649
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

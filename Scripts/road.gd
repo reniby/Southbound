@@ -12,6 +12,7 @@ var seen_pos = []
 @export var pickup: PackedScene
 @export var obstacle: PackedScene
 @export var disabled = false
+@onready var fx: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var road_1: Node3D
 var road_2: Node3D
@@ -53,7 +54,8 @@ func road_gen():
 
 	# remove existing items
 	for item in prev_road.get_node("Area3D").get_overlapping_areas():
-		item.queue_free()
+		if item.name != "barrier1" and item.name != "barrier2":
+			item.queue_free()
 
 	# spawn new items
 	prev_road.position.z -= road_size * road_blocks
@@ -98,9 +100,7 @@ func _on_barrier_1_area_entered(area: Area3D) -> void:
 		area.get_parent_node_3d().speed = 10.0
 		area.get_parent_node_3d().hit = true
 		area.get_parent_node_3d().rotation.y = -25
-		
-		
-
+		fx.play()
 
 func _on_barrier_2_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().name == "Player":
@@ -108,4 +108,4 @@ func _on_barrier_2_area_entered(area: Area3D) -> void:
 		area.get_parent_node_3d().speed = 10.0
 		area.get_parent_node_3d().hit = true
 		area.get_parent_node_3d().rotation.y = 25
-		
+		fx.play()
