@@ -53,7 +53,6 @@ func _physics_process(delta) -> void:
 	elif power <= 0:
 		power = 0
 
-	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
 	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
