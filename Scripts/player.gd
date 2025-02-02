@@ -29,7 +29,6 @@ var mult = 1.0
 
 func _ready():
 	set_lights(0)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	speed = 5.0
 #
 #func _unhandled_input(event):
@@ -53,7 +52,7 @@ func _physics_process(delta) -> void:
 	elif power <= 0:
 		power = 0
 
-	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
+	power -= 0.0001 * (speed + ENERGY_OPTIONS[light_power])
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
 
@@ -69,6 +68,8 @@ func _physics_process(delta) -> void:
 	mult = 1 + light_mult + snapped(speed_mult, 0.01)
 	score += dist * mult
 
+func _integrate_forces(state):
+	rotation.y = clamp(rotation.y, deg_to_rad(-40.0), deg_to_rad(40.0))
 
 func set_lights(curr_light):
 	light_power = curr_light
