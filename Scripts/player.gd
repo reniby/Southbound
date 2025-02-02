@@ -4,6 +4,7 @@ extends VehicleBody3D
 @onready var camera = $Pivot/Camera3D
 @onready var light1: SpotLight3D = $SpotLight3D2
 @onready var light2: SpotLight3D = $SpotLight3D
+@onready var car_model: Node3D = $CarModel
 
 @export var power = 100
 
@@ -75,6 +76,8 @@ func _physics_process(delta) -> void:
 		
 	mult = 1 + light_mult + snapped(speed_mult, 0.01)
 	score += dist * mult
+	
+	car_model.bm_car_viper_steering.rotation.z = steering * 1.4
 
 func _integrate_forces(state):
 	rotation.y = clamp(rotation.y, deg_to_rad(-40.0), deg_to_rad(40.0))

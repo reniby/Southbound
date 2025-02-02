@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://bptg0pqpbua4s"]
+[gd_scene load_steps=6 format=4 uid="uid://bptg0pqpbua4s"]
 
 [ext_resource type="PackedScene" uid="uid://c1qjsrguubrph" path="res://Assets/Models/bm.car.alpha.gltf" id="1_pjfxh"]
+[ext_resource type="Script" path="res://Scripts/car.gd" id="1_t6ugv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52t2j"]
 resource_name = "material_22"
@@ -40,6 +41,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8muhs")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_t6ugv")
 
 [node name="bm_car_alpha" parent="." instance=ExtResource("1_pjfxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79946, 0, 1.30789)
@@ -66,5 +68,11 @@ skeleton = NodePath("")
 transform = Transform3D(0.00408196, 0.375359, -0.267582, -0.00296737, 0.383541, 0.263002, 0.0413083, -0.00954019, 0.0453344, -165.012, 105.978, -5.33142)
 mesh = SubResource("ArrayMesh_w7jly")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5503, 5.71308)
+light_color = Color(0.979354, 1, 0.730072, 1)
+light_energy = 0.4
+omni_range = 3.956
 
 [editable path="bm_car_alpha"]
