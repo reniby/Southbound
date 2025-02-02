@@ -30,42 +30,50 @@ func _ready():
 		obstacles = $"../../Obstacles"
 		player = $"../../Player"
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.get_parent_node_3d().name == "Player":
-		seen_pos = []
-		blocks_found += 0.25
-		var prev_road
-
-		var road_order = ["road1","road2","road3","road4"]
-		var roads = [road_1, road_2, road_3, road_4]
-		for r in len(road_order):
-			if self.name == road_order[r]:
-				prev_road = roads[(r+2)%4]
-
-		# remove existing items
-		for item in prev_road.get_node("Area3D").get_overlapping_areas():
-			if item.name != "barrier1" and item.name != "barrier2":
-				item.queue_free()
-
-		# spawn new items
-		prev_road.position.z -= road_size * road_blocks
-		var r_pos
-
-		if rng.randi_range(0, 2):
-			var new_pickup = pickup.instantiate()
-			r_pos = random_position(prev_road)
-			new_pickup.position.z = r_pos[0]
-			new_pickup.position.x = r_pos[1]
-			new_pickup.position.y = 1.5
-			pickups.add_child(new_pickup)
+var gate = true
+func _physics_process(delta):
+	if player != null and int(position.z - player.position.z) == -36:
+		if gate:
+			road_gen()
+			gate = false
+	elif player != null and int(position.z - player.position.z) == -35:
+		gate = true
 		
-		for i in rng.randi_range(int(blocks_found)-1, int(blocks_found)+1):
-			var new_obstacle = obstacle.instantiate()
-			r_pos = random_position(prev_road)
-			new_obstacle.position.z = r_pos[0]
-			new_obstacle.position.x = r_pos[1]
-			new_obstacle.position.y = 1.5
-			obstacles.add_child(new_obstacle)
+	
+func road_gen():
+	seen_pos = []
+	blocks_found += 0.25
+	var prev_road
+
+	var road_order = ["Road1","Road2","Road3","Road4"]
+	var roads = [road_1, road_2, road_3, road_4]
+	for r in len(road_order):
+		if self.is_in_group(road_order[r]):
+			prev_road = roads[(r+2)%4]
+
+	# remove existing items
+	for item in prev_road.get_node("Area3D").get_overlapping_areas():
+		item.queue_free()
+
+	# spawn new items
+	prev_road.position.z -= road_size * road_blocks
+	var r_pos
+
+	if rng.randi_range(0, 2):
+		var new_pickup = pickup.instantiate()
+		r_pos = random_position(prev_road)
+		new_pickup.position.z = r_pos[0]
+		new_pickup.position.x = r_pos[1]
+		new_pickup.position.y = 1.5
+		pickups.add_child(new_pickup)
+	
+	for i in rng.randi_range(int(blocks_found)-1, int(blocks_found)+1):
+		var new_obstacle = obstacle.instantiate()
+		r_pos = random_position(prev_road)
+		new_obstacle.position.z = r_pos[0]
+		new_obstacle.position.x = r_pos[1]
+		new_obstacle.position.y = 1.5
+		obstacles.add_child(new_obstacle)
 
 
 func random_position(prev_road):

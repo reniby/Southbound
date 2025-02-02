@@ -103,10 +103,10 @@ draw_pass_1 = SubResource("RibbonTrailMesh_6ideu")
 
 [node name="Start" type="Button" parent="."]
 visible = false
-offset_left = 196.0
-offset_top = 710.0
-offset_right = 322.0
-offset_bottom = 741.0
+offset_left = 622.0
+offset_top = 722.0
+offset_right = 748.0
+offset_bottom = 753.0
 scale = Vector2(5.64225, 6.32669)
 disabled = true
 text = "START DRIVING"
@@ -120,16 +120,6 @@ offset_bottom = 169.0
 scale = Vector2(8.9276, 12.3559)
 theme_override_font_sizes/font_size = 28
 text = "South Bound"
-
-[node name="Leaderboard" type="Button" parent="."]
-visible = false
-offset_left = 1048.0
-offset_top = 712.0
-offset_right = 1175.0
-offset_bottom = 743.0
-scale = Vector2(5.64225, 6.32669)
-disabled = true
-text = "LEADERBOARD"
 
 [node name="Tutorial" type="Label" parent="."]
 visible = false

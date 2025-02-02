@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://byiip1duovchx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hj7uy"]
-[ext_resource type="PackedScene" uid="uid://bptg0pqpbua4s" path="res://Scenes/car.tscn" id="2_skpbr"]
+[ext_resource type="PackedScene" path="res://Scenes/car.tscn" id="2_skpbr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_futcf"]
 

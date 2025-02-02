@@ -82,7 +82,7 @@ light_angular_distance = 31.71
 shadow_enabled = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_f8doh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0544739, 0.267626, -2.85041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0544739, 0.267626, 53.3281)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.787903, 1.05774, 0, -0.615799, 1.35336, 0.188629, 15.1497, -27.3599)
