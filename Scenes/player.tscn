@@ -1,17 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://byiip1duovchx"]
+[gd_scene load_steps=6 format=3 uid="uid://byiip1duovchx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hj7uy"]
+[ext_resource type="PackedScene" uid="uid://bptg0pqpbua4s" path="res://Scenes/car.tscn" id="2_skpbr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_futcf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ktgia"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7adf"]
+size = Vector3(1, 1.9082, 1)
 
 [node name="Player" type="VehicleBody3D"]
 mass = 500.0
 center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -1.5)
 script = ExtResource("1_hj7uy")
+
+[node name="CarModel" parent="." instance=ExtResource("2_skpbr")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.184924, 3.42748, -1.77562)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 3.04829, 0, 0.176988, -0.518714)
@@ -46,7 +52,6 @@ spot_angle = 27.5018
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430148, 0)
 shape = SubResource("BoxShape3D_v7adf")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]

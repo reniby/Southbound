@@ -30,6 +30,7 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Windshield" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Windshield"]
 offset_left = -9.08551

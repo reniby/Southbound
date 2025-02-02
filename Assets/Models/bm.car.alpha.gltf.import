@@ -1,0 +1,51 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c1qjsrguubrph"
+path="res://.godot/imported/bm.car.alpha.gltf-b0c08095b0c53710a9ac95436c785f67.scn"
+
+[deps]
+
+source_file="res://Assets/Models/bm.car.alpha.gltf"
+dest_files=["res://.godot/imported/bm.car.alpha.gltf-b0c08095b0c53710a9ac95436c785f67.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Node/bm_car_viper/Camera": {
+"import/skip_import": true
+},
+"PATH:Node/bm_car_viper/Camera2": {
+"import/skip_import": true
+},
+"PATH:Node/bm_car_viper/Default Ambient Light": {
+"import/skip_import": true
+},
+"PATH:Node/bm_car_viper/Directional Light": {
+"import/skip_import": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

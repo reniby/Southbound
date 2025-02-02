@@ -12,7 +12,7 @@ const BOB_AMP = 0.1
 var time = 0.0
 
 var speed
-var turn_speed = 0.4
+var turn_speed = 0.2
 var power_steering = false
 var max_speed = false
 var hit = false
@@ -40,18 +40,20 @@ func _ready():
 		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
-	apply_force(Vector3.DOWN * 70)
+	apply_force(Vector3.DOWN * 100)
 	
-	engine_force = 200 * max((speed - linear_velocity.length()),0)
+	engine_force = 200 * max((speed - linear_velocity.length()),0.0)
 	
 	if linear_velocity.length() > speed and not hit:
 		brake = 10 * min((linear_velocity.length() - speed),0)
 	elif linear_velocity.length() > speed and hit:
+		center_of_mass = Vector3(0,0,0.2)
 		brake = 50
-	elif linear_velocity.length() >= speed and hit:
+	elif linear_velocity.length() <= speed and hit:
+		center_of_mass = Vector3(0,0,-1.5)
 		hit = false
 		
-	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*5)
+	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*3)
 	
 	if power > 100:
 		power = 100

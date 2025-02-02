@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=4 uid="uid://bptg0pqpbua4s"]
+
+[ext_resource type="PackedScene" uid="uid://c1qjsrguubrph" path="res://Assets/Models/bm.car.alpha.gltf" id="1_pjfxh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52t2j"]
+resource_name = "material_22"
+albedo_color = Color(0.176471, 0.176471, 0.176471, 1)
+roughness = 0.96889
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8muhs"]
+_surfaces = [{
+"aabb": AABB(-202.5, -80, 0, 405, 160, 20),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AgABAAAAAgADAAEABAADAAIABAAFAAMABgAFAAQABgAHAAUAAAAHAAYAAAABAAcAAgAAAAYAAQADAAcABgAEAAIABQAHAAMA"),
+"name": "material_22",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AIBKQwAAoEIAAKBBAIBKQwAAoEIAAAAAAIBKwwAAoEIAAKBBAIBKwwAAoEIAAAAAAIBKwwAAoMIAAKBBAIBKwwAAoMIAAAAAAIBKQwAAoMIAAKBBAIBKQwAAoMIAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w7jly"]
+resource_name = "bm_car_alpha_mesh23"
+_surfaces = [{
+"aabb": AABB(-202.5, -80, 0, 405, 160, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAAAA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("BgABAAAABgAHAAEACgAFAAQACgALAAUADgAJAAgADgAPAAkAAgANAAwAAgADAA0AEAAUABIAFQARABMAEgAWABAAFwATABEA"),
+"material": SubResource("StandardMaterial3D_52t2j"),
+"name": "material_22",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AIBKQwAAoEIAAKBBAIBKQwAAoEIAAAAAAIBKQwAAoEIAAKBBAIBKQwAAoEIAAAAAAIBKwwAAoEIAAKBBAIBKwwAAoEIAAAAAAIBKwwAAoEIAAKBBAIBKwwAAoEIAAAAAAIBKwwAAoMIAAKBBAIBKwwAAoMIAAAAAAIBKwwAAoMIAAKBBAIBKwwAAoMIAAAAAAIBKQwAAoMIAAKBBAIBKQwAAoMIAAAAAAIBKQwAAoMIAAKBBAIBKQwAAoMIAAAAAAIBKwwAAoEIAAKBBAIBKwwAAoEIAAAAAAIBKQwAAoMIAAKBBAIBKQwAAoMIAAAAAAIBKQwAAoEIAAKBBAIBKQwAAoEIAAAAAAIBKwwAAoMIAAKBBAIBKwwAAoMIAAAAA/3///////7//f/////8Cw////3//f+L4////f////78AAP9/OI7//wAA/384jv///3//////AsP/f/////8Cw/9/AAD///+//38AAPn5/78AAP9/OI7//wAA/3////+/////f/9/4vj///9//3/i+P9/AAD5+f+//38AAPn5/7//f/9/////P/////////+//3//f////z//////////v/9//3////8//////////7//f/9/////P/////////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8muhs")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bm_car_alpha" parent="." instance=ExtResource("1_pjfxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79946, 0, 1.30789)
+
+[node name="Rectangle 23" type="MeshInstance3D" parent="bm_car_alpha/Node/bm_car_viper" index="13"]
+transform = Transform3D(4.51661e-16, 0, -1, 7.52167e-32, 2.08076, 0, 2.0341, -7.69422e-32, 2.22045e-16, 71.2045, -157.082, 500)
+mesh = SubResource("ArrayMesh_w7jly")
+skeleton = NodePath("")
+
+[node name="window" type="Node3D" parent="bm_car_alpha/Node/bm_car_viper" index="15"]
+transform = Transform3D(4.51661e-16, 0, -1, 7.52167e-32, 2.08076, 0, 2.0341, -7.69422e-32, 2.22045e-16, 71.2045, -157.082, 500)
+
+[node name="Rectangle 24" type="MeshInstance3D" parent="bm_car_alpha/Node/bm_car_viper/window"]
+transform = Transform3D(0.00344224, 0.441523, -0.212607, -0.00369035, 0.305049, 0.309141, 0.0413083, -0.00954019, 0.0453344, -105.694, 156.449, -6.84631)
+mesh = SubResource("ArrayMesh_w7jly")
+skeleton = NodePath("")
+
+[node name="Rectangle 26" type="MeshInstance3D" parent="bm_car_alpha/Node/bm_car_viper/window"]
+transform = Transform3D(0.129733, -0.276972, -1.39087e-16, 0.135318, 0.265541, 3.26029e-16, -2.60734e-17, -1.25097e-16, 1, -172.902, 62.2389, -0.221344)
+mesh = SubResource("ArrayMesh_w7jly")
+skeleton = NodePath("")
+
+[node name="Rectangle 25" type="MeshInstance3D" parent="bm_car_alpha/Node/bm_car_viper/window"]
+transform = Transform3D(0.00408196, 0.375359, -0.267582, -0.00296737, 0.383541, 0.263002, 0.0413083, -0.00954019, 0.0453344, -165.012, 105.978, -5.33142)
+mesh = SubResource("ArrayMesh_w7jly")
+skeleton = NodePath("")
+
+[editable path="bm_car_alpha"]
