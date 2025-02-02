@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcsuknevy4bpw"]
 
 [ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
-[ext_resource type="PackedScene" uid="uid://cr3vavf83i86m" path="res://Assets/Models/bm.pickup.gasoline.gltf" id="2_ycv10"]
+[ext_resource type="PackedScene" uid="uid://cr3vavf83i86m" path="res://Assets/Models/bm-pickup-gasoline.gltf" id="2_ycv10"]
 [ext_resource type="AudioStream" uid="uid://v5xsvqy1dyhq" path="res://Audio/FX/mixkit-unlock-game-notification-253.wav" id="3_m22qk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdfok"]
