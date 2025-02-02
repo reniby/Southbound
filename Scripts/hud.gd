@@ -6,9 +6,9 @@ extends Node2D
 @onready var score_label: RichTextLabel = $ScoreLabel
 @onready var mult_label: RichTextLabel = $MultLabel
 
-const LOW_GEAR = 5.0
-const MID_GEAR = 15.0
-const HIGH_GEAR = 25.0
+const LOW_GEAR = 15.0
+const MID_GEAR = 22.5
+const HIGH_GEAR = 30.0
 
 func _ready():
 	change_music(jazz)

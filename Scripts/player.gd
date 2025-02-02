@@ -15,6 +15,7 @@ var speed
 var turn_speed = 0.4
 var power_steering = false
 var max_speed = false
+var hit = false
 
 const SENSITIVITY = 0.004
 const ENERGY_OPTIONS = [0,8,20]
@@ -40,11 +41,16 @@ func _ready():
 		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-5), deg_to_rad(5))
 
 func _physics_process(delta) -> void:
-	apply_force(Vector3.DOWN * 50)
+	apply_force(Vector3.DOWN * 70)
+	
 	engine_force = 200 * max((speed - linear_velocity.length()),0)
 	
-	if linear_velocity.length() > speed:
+	if linear_velocity.length() > speed and not hit:
 		brake = 10 * min((linear_velocity.length() - speed),0)
+	elif linear_velocity.length() > speed and hit:
+		brake = 50
+	elif linear_velocity.length() >= speed and hit:
+		hit = false
 		
 	steering = lerp(steering, Input.get_axis("right", "left") * turn_speed, delta*5)
 	
