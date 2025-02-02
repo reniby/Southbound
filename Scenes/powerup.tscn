@@ -1,31 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcsuknevy4bpw"]
+[gd_scene load_steps=5 format=3 uid="uid://bcsuknevy4bpw"]
 
 [ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
 [ext_resource type="AudioStream" uid="uid://v5xsvqy1dyhq" path="res://Audio/FX/mixkit-unlock-game-notification-253.wav" id="3_m22qk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fcma7"]
-
-[sub_resource type="Shader" id="Shader_aaf0u"]
-code = "shader_type spatial;
-render_mode unshaded, depth_draw_never;
-
-uniform vec4 shine_color : hint_color = vec4( 1.0, 1.0, 1.0, 1.0 );
-uniform float cycle_interval : hint_range(0.5, 5.0) = 1.0;
-uniform float shine_speed : hint_range(1.0, 5.0) = 3.0;
-uniform float shine_width : hint_range(1.0, 100.0) = 3.0;
-
-void fragment( )
-{
-	vec3 vertex = ( CAMERA_MATRIX * vec4( VERTEX, 1.0 ) ).xyz;
-	float width = shine_width * 0.001 * cycle_interval;
-	float frequency = floor( sin( vertex.z * cycle_interval + TIME * shine_speed * cycle_interval ) + width );
-	ALBEDO = shine_color.rgb;
-	ALPHA = clamp( ( 1.0 - dot( NORMAL, VIEW ) ) * frequency * shine_color.a, 0.0, 1.0 );
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s07yr"]
-render_priority = 0
-shader = SubResource("Shader_aaf0u")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdrq8"]
 
@@ -36,7 +14,6 @@ script = ExtResource("1_ltpmm")
 
 [node name="Mesh" type="MeshInstance3D" parent="Area3D"]
 mesh = SubResource("CapsuleMesh_fcma7")
-surface_material_override/0 = SubResource("ShaderMaterial_s07yr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_sdrq8")

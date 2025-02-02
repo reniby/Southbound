@@ -15,7 +15,7 @@ func _ready():
 	score_label.text = "0"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress_bar.value = player.power
 	
 	score_label.text = str(int(player.score))
