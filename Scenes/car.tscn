@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bptg0pqpbua4s"]
+[gd_scene load_steps=12 format=4 uid="uid://bptg0pqpbua4s"]
 
 [ext_resource type="PackedScene" uid="uid://c1qjsrguubrph" path="res://Assets/Models/bm.car.alpha.gltf" id="1_pjfxh"]
 [ext_resource type="Script" path="res://Scripts/car.gd" id="1_t6ugv"]
@@ -40,11 +40,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8muhs")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbcwl"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfp5m"]
+material = SubResource("StandardMaterial3D_sbcwl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqk0m"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ypvcb"]
+material = SubResource("StandardMaterial3D_rqk0m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3sgh"]
+albedo_color = Color(0.233925, 0.233925, 0.233925, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tjo0x"]
+material = SubResource("StandardMaterial3D_i3sgh")
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_t6ugv")
 
 [node name="bm_car_alpha" parent="." instance=ExtResource("1_pjfxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79946, 0, 1.30789)
+
+[node name="radio" parent="bm_car_alpha/Node/bm_car_viper" index="11"]
+visible = false
 
 [node name="Rectangle 23" type="MeshInstance3D" parent="bm_car_alpha/Node/bm_car_viper" index="13"]
 transform = Transform3D(4.51661e-16, 0, -1, 7.52167e-32, 2.08076, 0, 2.0341, -7.69422e-32, 2.22045e-16, 71.2045, -157.082, 500)
@@ -74,5 +95,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5503, 5.71308)
 light_color = Color(0.979354, 1, 0.730072, 1)
 light_energy = 0.4
 omni_range = 3.956
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.43459, 0, 0, 0, 0.451996, 0, 0, 0, 0.110589, 0.0548077, 0.233642, 2.84321)
+mesh = SubResource("BoxMesh_vfp5m")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="fuel_gauge" type="Node3D" parent="."]
+transform = Transform3D(0.0121554, 0.0179204, 0, -0.0689365, 0.00315986, 0, 0, 0, 0.156, 0.0119612, -0.113271, 2.8504)
+
+[node name="fuel_needle" type="MeshInstance3D" parent="fuel_gauge"]
+transform = Transform3D(1, 4.87105e-13, 9.31736e-21, -2.02901e-21, 25.8653, 1.71576e-13, 3.17637e-22, 1.21776e-13, 1, 1.14739e-06, 8.71217, 0)
+mesh = SubResource("PrismMesh_ypvcb")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.77553e-09, -1, 0, -0.0634967, -4.37114e-08, 0.0192216, -0.232744, 2.85575)
+mesh = SubResource("CylinderMesh_tjo0x")
 
 [editable path="bm_car_alpha"]

@@ -62,6 +62,9 @@ func _physics_process(delta) -> void:
 		power = 0
 
 	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
+	print(power)
+	print(car_model.fuel_gauge.rotation.z)
+	car_model.fuel_gauge.rotation.z += deg_to_rad(0.001 * (speed + ENERGY_OPTIONS[light_power])) * 1.6
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
 
