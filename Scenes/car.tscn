@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bptg0pqpbua4s"]
+[gd_scene load_steps=6 format=4 uid="uid://bcm1cbhx05dva"]
 
 [ext_resource type="PackedScene" uid="uid://c1qjsrguubrph" path="res://Assets/Models/bm.car.alpha.gltf" id="1_pjfxh"]
 [ext_resource type="Script" path="res://Scripts/car.gd" id="1_t6ugv"]

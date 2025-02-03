@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_ltpmm"]
 [ext_resource type="PackedScene" uid="uid://cr3vavf83i86m" path="res://Assets/Models/bm-pickup-gasoline.gltf" id="2_ycv10"]
-[ext_resource type="AudioStream" uid="uid://v5xsvqy1dyhq" path="res://Audio/FX/mixkit-unlock-game-notification-253.wav" id="3_m22qk"]
+[ext_resource type="AudioStream" uid="uid://dnnh3hffjvwfd" path="res://Audio/FX/item-pick-up-38258.mp3" id="3_gtl32"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdfok"]
 
@@ -20,7 +20,7 @@ shape = SubResource("BoxShape3D_cdfok")
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Area3D"]
-stream = ExtResource("3_m22qk")
+stream = ExtResource("3_gtl32")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.60877, 0)

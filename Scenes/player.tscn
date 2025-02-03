@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://byiip1duovchx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hj7uy"]
-[ext_resource type="PackedScene" uid="uid://bptg0pqpbua4s" path="res://Scenes/car.tscn" id="2_skpbr"]
+[ext_resource type="PackedScene" uid="uid://bcm1cbhx05dva" path="res://Scenes/car.tscn" id="2_skpbr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_futcf"]
 
@@ -17,7 +17,7 @@ center_of_mass = Vector3(0, 0, -1.5)
 script = ExtResource("1_hj7uy")
 
 [node name="CarModel" parent="." instance=ExtResource("2_skpbr")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.184924, 3.42748, -1.77562)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.184924, 3.35327, -1.44214)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.55158, 0, 0, 0, 0.135342, 0, 0, 0, 3.04829, 0, 0.176988, -0.518714)
