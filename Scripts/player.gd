@@ -62,9 +62,7 @@ func _physics_process(delta) -> void:
 		power = 0
 
 	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
-	print(power)
-	print(car_model.fuel_gauge.rotation.z)
-	car_model.fuel_gauge.rotation.z += deg_to_rad(0.001 * (speed + ENERGY_OPTIONS[light_power])) * 1.6
+	car_model.fuel_gauge.rotation.z = deg_to_rad(map_value(power, 0, 100, 80,-80))
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)
 
@@ -94,3 +92,6 @@ func set_lights(curr_light):
 	light2.spot_range = RANGE_OPTIONS[curr_light]
 	light1.spot_angle = ANGLE_OPTIONS[curr_light]
 	light2.spot_angle = ANGLE_OPTIONS[curr_light]
+	
+func map_value(value: float, in_min: float, in_max: float, out_min: float, out_max: float) -> float:
+	return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
