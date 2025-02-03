@@ -32,7 +32,7 @@ func _ready():
 		player = $"../../Player"
 
 var gate = true
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player != null and int(position.z - player.position.z) == -36:
 		if gate:
 			road_gen()

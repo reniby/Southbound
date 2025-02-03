@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2uwrwnco8rgn"
 path.s3tc="res://.godot/imported/bm-tile-highway_1.png-8cc086182941bb0574fa85871c67a61e.s3tc.ctex"
+path.etc2="res://.godot/imported/bm-tile-highway_1.png-8cc086182941bb0574fa85871c67a61e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/bm-tile-highway_1.png"
-dest_files=["res://.godot/imported/bm-tile-highway_1.png-8cc086182941bb0574fa85871c67a61e.s3tc.ctex"]
+dest_files=["res://.godot/imported/bm-tile-highway_1.png-8cc086182941bb0574fa85871c67a61e.s3tc.ctex", "res://.godot/imported/bm-tile-highway_1.png-8cc086182941bb0574fa85871c67a61e.etc2.ctex"]
 
 [params]
 

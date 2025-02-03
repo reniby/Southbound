@@ -80,7 +80,7 @@ func _physics_process(delta) -> void:
 	
 	car_model.bm_car_viper_steering.rotation.z = steering * 1.4
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	rotation.y = clamp(rotation.y, deg_to_rad(-40.0), deg_to_rad(40.0))
 	rotation.x = clamp(rotation.x, deg_to_rad(-40.0), deg_to_rad(40.0))
 
