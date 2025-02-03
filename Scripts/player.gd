@@ -31,7 +31,7 @@ var mult = 1.0
 
 func _ready():
 	set_lights(1)
-	speed = 5.0
+	speed = 15.0
 #
 #func _unhandled_input(event):
 	#if event is InputEventMouseMotion:
@@ -61,7 +61,7 @@ func _physics_process(delta) -> void:
 	elif power <= 0:
 		power = 0
 
-	power -= 0.001 * (speed + ENERGY_OPTIONS[light_power])
+	power -= 0.0005 * (speed + ENERGY_OPTIONS[light_power])
 	car_model.fuel_gauge.rotation.z = deg_to_rad(map_value(power, 0, 100, 80,-80))
 	dist = linear_velocity.length() * delta
 	light_mult = (abs(light_power - 2) * 0.1)

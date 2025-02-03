@@ -97,7 +97,7 @@ func random_position(prev_road):
 func _on_barrier_1_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().name == "Player":
 		area.get_parent_node_3d().power -= 10
-		area.get_parent_node_3d().speed = 10.0
+		area.get_parent_node_3d().speed = 15.0
 		area.get_parent_node_3d().hit = true
 		area.get_parent_node_3d().rotation.y = -25
 		fx.play()
@@ -105,7 +105,7 @@ func _on_barrier_1_area_entered(area: Area3D) -> void:
 func _on_barrier_2_area_entered(area: Area3D) -> void:
 	if area.get_parent_node_3d().name == "Player":
 		area.get_parent_node_3d().power -= 10
-		area.get_parent_node_3d().speed = 10.0
+		area.get_parent_node_3d().speed = 15.0
 		area.get_parent_node_3d().hit = true
 		area.get_parent_node_3d().rotation.y = 25
 		fx.play()

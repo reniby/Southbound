@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckfgi04pyu0iu"]
+[gd_scene load_steps=12 format=3 uid="uid://ckfgi04pyu0iu"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_tnq7o"]
 [ext_resource type="PackedScene" uid="uid://dgpapb3koxqf5" path="res://Scenes/road.tscn" id="2_x4prd"]
+[ext_resource type="FontFile" uid="uid://555qoltuhble" path="res://Assets/Xanmono-Regular.ttf" id="3_ef3q8"]
+[ext_resource type="FontFile" uid="uid://d2ll3ah4anq1g" path="res://Assets/ConsolaMono-Book.ttf" id="4_73kh5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s2wv8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -103,58 +105,49 @@ draw_pass_1 = SubResource("RibbonTrailMesh_6ideu")
 
 [node name="Start" type="Button" parent="."]
 visible = false
-offset_left = 622.0
-offset_top = 722.0
-offset_right = 748.0
-offset_bottom = 753.0
-scale = Vector2(5.64225, 6.32669)
+offset_left = 590.0
+offset_top = 849.0
+offset_right = 1378.0
+offset_bottom = 923.0
+theme_override_fonts/font = ExtResource("3_ef3q8")
+theme_override_font_sizes/font_size = 60
 disabled = true
 text = "START DRIVING"
 
 [node name="Title" type="Label" parent="."]
 visible = false
-offset_left = 207.0
-offset_top = 124.0
-offset_right = 407.0
-offset_bottom = 169.0
-scale = Vector2(8.9276, 12.3559)
-theme_override_font_sizes/font_size = 28
-text = "South Bound"
+texture_filter = 1
+offset_left = 233.0
+offset_top = 182.0
+offset_right = 2037.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("3_ef3q8")
+theme_override_font_sizes/font_size = 144
+text = "Southbound"
 
 [node name="Tutorial" type="Label" parent="."]
 visible = false
-offset_left = 153.0
-offset_top = 24.0
-offset_right = 437.0
-offset_bottom = 89.0
-scale = Vector2(5.8076, 12.3559)
-theme_override_font_sizes/font_size = 10
-text = "Use your headlights to see farther, 
-and your gear shift to speed up.
-Both will make your gas tank drain.
-Pick up gas cans and avoid obstacles to rack up points!
+offset_left = 133.0
+offset_top = 91.0
+offset_right = 1633.0
+offset_bottom = 2464.0
+scale = Vector2(1.11492, 1.37218)
+theme_override_fonts/font = ExtResource("4_73kh5")
+theme_override_font_sizes/font_size = 50
+text = "Use buttons in bottom left to set headlight power 
+and car speed. But be careful! Higher speeds and brighter lights will drain your tank. Pick up gas cans and avoid obstacles to rack up points, but keep an eye on your fuel gage before your gas power runs out!
 "
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Begin" type="Button" parent="."]
-visible = false
-offset_left = 634.0
-offset_top = 845.0
-offset_right = 760.0
-offset_bottom = 876.0
-scale = Vector2(5.64225, 6.32669)
-disabled = true
-text = "BEGIN"
-
 [node name="Scores" type="Label" parent="."]
 visible = false
-offset_left = 145.0
-offset_top = 88.0
-offset_right = 429.0
-offset_bottom = 170.0
-scale = Vector2(5.79319, 7.76547)
-theme_override_font_sizes/font_size = 10
+offset_left = 184.0
+offset_top = 121.0
+offset_right = 1684.0
+offset_bottom = 877.0
+theme_override_fonts/font = ExtResource("3_ef3q8")
+theme_override_font_sizes/font_size = 80
 text = "1. asdf
 2. asfd
 3. asdf
@@ -162,6 +155,17 @@ text = "1. asdf
 5. asdfr"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Begin" type="Button" parent="."]
+visible = false
+offset_left = 592.0
+offset_top = 847.0
+offset_right = 1380.0
+offset_bottom = 921.0
+theme_override_fonts/font = ExtResource("3_ef3q8")
+theme_override_font_sizes/font_size = 60
+disabled = true
+text = "Begin"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Begin" to="." method="_on_begin_pressed"]

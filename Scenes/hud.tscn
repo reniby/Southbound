@@ -1,33 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm6pwgdujbxdh"]
+[gd_scene load_steps=2 format=3 uid="uid://bm6pwgdujbxdh"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_gfn7g"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_co2mo"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l061q"]
-bg_color = Color(0.0827573, 0, 0.77393, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx1s1"]
-bg_color = Color(0.149393, 0.678678, 0.702176, 1)
 
 [node name="HUD" type="Node2D"]
 position = Vector2(156, 150)
 scale = Vector2(16.84, 9.44)
 script = ExtResource("1_gfn7g")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = 1
-material = SubResource("CanvasItemMaterial_co2mo")
-offset_left = -8.49169
-offset_top = 11.1229
-offset_right = 72.5083
-offset_bottom = 38.1229
-scale = Vector2(0.0391164, 2.0985)
-theme_override_styles/background = SubResource("StyleBoxFlat_l061q")
-theme_override_styles/fill = SubResource("StyleBoxFlat_wx1s1")
-step = 0.001
-fill_mode = 3
-show_percentage = false
 
 [node name="Windshield" type="Node2D" parent="."]
 visible = false
@@ -87,16 +65,16 @@ offset_left = 97.0
 offset_top = 903.0
 offset_right = 138.0
 offset_bottom = 934.0
-scale = Vector2(1.25287, 1.53577)
-text = "L"
+scale = Vector2(1.33287, 1.53577)
+text = "Low"
 
 [node name="Med" type="Button" parent="Gears"]
 offset_left = 97.0
 offset_top = 952.0
 offset_right = 138.0
 offset_bottom = 983.0
-scale = Vector2(1.25287, 1.61577)
-text = "M"
+scale = Vector2(1.30313, 1.61577)
+text = "Med"
 
 [node name="High" type="Button" parent="Gears"]
 offset_left = 97.0
@@ -104,7 +82,15 @@ offset_top = 1003.0
 offset_right = 138.0
 offset_bottom = 1034.0
 scale = Vector2(1.25287, 1.61577)
-text = "H"
+text = "High"
+
+[node name="Label" type="Label" parent="Gears"]
+offset_left = 86.0
+offset_top = 866.0
+offset_right = 163.0
+offset_bottom = 900.0
+theme_override_font_sizes/font_size = 24
+text = "Speed:"
 
 [node name="Gears2" type="Node" parent="."]
 
@@ -113,16 +99,16 @@ offset_left = 209.0
 offset_top = 903.0
 offset_right = 250.0
 offset_bottom = 934.0
-scale = Vector2(1.25287, 1.53577)
-text = "O"
+scale = Vector2(1.32856, 1.53577)
+text = "Low"
 
 [node name="Regular" type="Button" parent="Gears2"]
 offset_left = 209.0
 offset_top = 952.0
 offset_right = 250.0
 offset_bottom = 983.0
-scale = Vector2(1.25287, 1.61577)
-text = "R"
+scale = Vector2(1.29287, 1.61577)
+text = "Med"
 
 [node name="Brights" type="Button" parent="Gears2"]
 offset_left = 209.0
@@ -130,23 +116,34 @@ offset_top = 1003.0
 offset_right = 250.0
 offset_bottom = 1034.0
 scale = Vector2(1.25287, 1.61577)
-text = "B"
+text = "High"
+
+[node name="Label" type="Label" parent="Gears2"]
+offset_left = 197.0
+offset_top = 866.0
+offset_right = 274.0
+offset_bottom = 900.0
+theme_override_font_sizes/font_size = 24
+text = "Lights:"
 
 [node name="MultLabel" type="RichTextLabel" parent="."]
-offset_top = 4.44915
-offset_right = 40.0
-offset_bottom = 44.4492
+offset_left = -4.75059
+offset_top = -4.76695
+offset_right = 55.2494
+offset_bottom = 35.2331
 scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 24
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -4.75059
+offset_top = -9.2161
+offset_right = 35.2494
+offset_bottom = 30.7839
 scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 24
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
